@@ -26,6 +26,19 @@ $width_fun_mno = 100 * $offer['fun'];
 $width_fun = $width_fun_mno  / $max_fun['maxfun'];      
 $width_safe_mno = 100 * $offer['safet'];
 $width_safe = $width_safe_mno  / $max_safe['maxsafe'];
+//arrays
+$the_array_of_qualities = array($wifi,$cost,$fun,$safe,$degree,$pressure,$humidity,$wind_speed);
+
+$the_array_of_percent = array($percent_wifi, $percent_cost,$percent_fun,$percent_safety,$percent_degree,$percent_pressure,$percent_humidity,$percent_wind_speed);
+
+$qualities_names = array('Wifi Level','Cost for month','Fun Level','Safe Level','Temperature (now)','Pressure (now)','Humidity (now)','Wind speed (now)');
+
+$units = array('Mps',$cost_name,' / 10 points',' / 10 points',
+$degree_name, 'mil.of.mer','/ 100 %', 'm / s');
+
+$images_href = array('../icons/internet.svg','../icons/money.svg','../icons/happy-hour.svg','../icons/safety.svg','../icons/internet.svg','../icons/internet.svg','../icons/internet.svg','../icons/internet.svg','../icons/internet.svg');
+//count array 
+$count_array = count($the_array_of_percent);
 //    Цвета для  граффиков
 $color_cost;$color_wifi;
 $color_fun;$color_safety;
@@ -100,198 +113,46 @@ echo "
 <div class = 'tabsContent'>
  <div id = 'first/$link'  class='tabContent'>
     <div class =  'graphs__container'>
-        <div class =  'graphs__element'>
-            
-            <div class = 'offers__graphics__more'>
-                <div class='offers__graphics-resized'>
-                    <div class='short-info-charts'>
-                        <img src = 'icons/money.svg'>
-                        <div class = 'offers__signs-more'>Cost for month</div>
-                    </div>
-                    
-                    <div class = 'offers__graphics-body'>
-                        <div class ='offers__element-more' style = 'background-color:$color_cost;width:$percent_cost";echo"%''>
-                        <span>
-                        $cost $cost_name</span>
-                        <?else:?>
-                        </div>
-                    </div>
+        <div class =  'graphs__element'>";
+        for ($i=0; $i <$count_array/2 ; $i++) { 
+            echo"<div class = 'offers__graphics__more'>
+            <div class='offers__graphics-resized'>
+                <div class='short-info-charts'>
+                    <img src = '$images_href[$i]'>
+                    <div class = 'offers__signs-more'>$qualities_names[$i]</div>
                 </div>
-            </div>
-
-            <div class = 'offers__graphics__more'>
-                <div class='offers__graphics-resized'>
-                    <div class='short-info-charts'>
-                        <img src = 'icons/internet.svg'>
-                        <div class = 'offers__signs-more'>Wifi Level</div>
-                    </div>
-                    
-                    <div class = 'offers__graphics-body'>
-                        <div class ='offers__element-more'  style = 'background-color:$color_wifi;width:$percent_wifi";echo"%''>
-                        <span>$wifi Mps</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class = 'offers__graphics__more'>
-                <div class='offers__graphics-resized'>
-                    <div class='short-info-charts'>
-                        <img src = 'icons/safety.svg'>
-                        <div class = 'offers__signs-more'>Safe Level</div>
-                    </div>
-                    
-                    <div class = 'offers__graphics-body'>
-                        <div class ='offers__element-more'  style = 'background-color:$color_safety;width:$percent_safety";echo"%''>
-                        <span>$safe/10 points</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class = 'offers__graphics__more'>
-                <div class='offers__graphics-resized'>
-                    <div class='short-info-charts'>
-                        <img src = 'icons/happy-hour.svg'>
-                        <div class = 'offers__signs-more'>Fun Level</div>
-                    </div>
-                    
-                    <div class = 'offers__graphics-body'>
-                        <div class ='offers__element-more'
-                            style = 'background-color:$color_fun;width:$percent_fun";echo"%''>
-                        <span>$fun/10 points</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-                    
-            <div class = 'offers__graphics__more'>
-                <div class='offers__graphics-resized'>
-                    <div class='short-info-charts'>
-                        <img src = 'icons/safety.svg'>
-                        <div class = 'offers__signs-more'>Humidity(now)</div>
-                    </div>
-                    
-                    <div class = 'offers__graphics-body'>
-                        <div class ='offers__element-more'  style = 'background-color:$color_safety;width:$percent_humidity";echo"%''>
-                        <span>$humidity%/100%</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class = 'offers__graphics__more'>
-                <div class='offers__graphics-resized'>
-                    <div class='short-info-charts'>
-                        <img src = 'icons/safety.svg'>
-                        <div class = 'offers__signs-more'>Pressure (now)</div>
-                    </div>
-                    
-                    <div class = 'offers__graphics-body'>
-                        <div class ='offers__element-more'  style = 'background-color:$color_safety;width:$percent_pressure";echo"%''>
-                        <span>$pressure mil.of.mer</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
                 
-        </div>
-
-        <div class =  'graphs__element'>
-
-        <div class = 'offers__graphics__more'>
-                <div class='offers__graphics-resized'>
-                    <div class='short-info-charts'>
-                        <img src = 'icons/money.svg'>
-                        <div class = 'offers__signs-more'>Wind speed (now)</div>
-                    </div>
-                    
-                    <div class = 'offers__graphics-body'>
-                        <div class ='offers__element-more' style = 'background-color:$color_cost;width:$percent_wind_speed";echo"%''>
-                        <span>
-                        $wind_speed m/s </span>
-                        <?else:?>
-                        </div>
+                <div class = 'offers__graphics-body'>
+                    <div class ='offers__element-more' style = 'background-color:$color_cost;width:$the_array_of_percent[$i]";echo"%''>
+                    <span>
+                    $the_array_of_qualities[$i] $units[$i]</span>
                     </div>
                 </div>
             </div>
+        </div>";
+        }
+        echo"</div>
 
-            <div class = 'offers__graphics__more'>
-                <div class='offers__graphics-resized'>
-                    <div class='short-info-charts'>
-                        <img src = 'icons/internet.svg'>
-                        <div class = 'offers__signs-more'>Temperature</div>
-                    </div>
-                    
-                    <div class = 'offers__graphics-body'>
-                        <div class ='offers__element-more'  style = 'background-color:$color_wifi;width:$percent_degree";echo"%''>
-                        <span>$degree $degree_name</span>
-                        </div>
+        <div class =  'graphs__element'>";
+        for ($i=$count_array/2 ; $i <$count_array ; $i++) { 
+            echo"<div class = 'offers__graphics__more'>
+            <div class='offers__graphics-resized'>
+                <div class='short-info-charts'>
+                    <img src = '$images_href[$i]'>
+                    <div class = 'offers__signs-more'>$qualities_names[$i]</div>
+                </div>
+                
+                <div class = 'offers__graphics-body'>
+                    <div class ='offers__element-more' style = 'background-color:$color_cost;width:$the_array_of_percent[$i]";echo"%''>
+                    <span>
+                    $the_array_of_qualities[$i] $units[$i]</span>
                     </div>
                 </div>
             </div>
-
-            <div class = 'offers__graphics__more'>
-                <div class='offers__graphics-resized'>
-                    <div class='short-info-charts'>
-                        <img src = 'icons/safety.svg'>
-                        <div class = 'offers__signs-more'>Safe Level</div>
-                    </div>
-                    
-                    <div class = 'offers__graphics-body'>
-                        <div class ='offers__element-more'  style = 'background-color:$color_safety;width:$percent_safety";echo"%''>
-                        <span>$safe/10 points</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class = 'offers__graphics__more'>
-                <div class='offers__graphics-resized'>
-                    <div class='short-info-charts'>
-                        <img src = 'icons/happy-hour.svg'>
-                        <div class = 'offers__signs-more'>Fun Level</div>
-                    </div>
-                    
-                    <div class = 'offers__graphics-body'>
-                        <div class ='offers__element-more'
-                            style = 'background-color:$color_fun;width:$percent_fun";echo"%''>
-                        <span>$fun/10 points</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-                    
-            <div class = 'offers__graphics__more'>
-                <div class='offers__graphics-resized'>
-                    <div class='short-info-charts'>
-                        <img src = 'icons/safety.svg'>
-                        <div class = 'offers__signs-more'>Humidity(now)</div>
-                    </div>
-                    
-                    <div class = 'offers__graphics-body'>
-                        <div class ='offers__element-more'  style = 'background-color:$color_safety;width:$percent_humidity";echo"%''>
-                        <span>$humidity%/100%</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class = 'offers__graphics__more'>
-                <div class='offers__graphics-resized'>
-                    <div class='short-info-charts'>
-                        <img src = 'icons/safety.svg'>
-                        <div class = 'offers__signs-more'>Pressure (now)</div>
-                    </div>
-                    
-                    <div class = 'offers__graphics-body'>
-                        <div class ='offers__element-more'  style = 'background-color:$color_safety;width:$percent_pressure";echo"%''>
-                        <span>$pressure mil.of.mer</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
+        </div>";
+        }
+                            
+    echo"
         </div>
     </div>
  </div>
