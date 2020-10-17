@@ -29,8 +29,7 @@ $percent_fun = Round(($fun / $fun_max) * 100 , 0);
 $percent_safety = Round(($safe / $safety_max) * 100 , 0);
 $percent_degree = Round(($degree / ($degree_max * $degree_value + $degree_value_add)) * 100 , 0);
 $percent_pressure = Round(($pressure / $pressure_max) * 100 , 0);
-$percent_wind_speed = Round(($humidity / $humidity_max) * 100 , 0);
-$percent_pressure = Round(($pressure / $pressure_max) * 100 , 0);
+$percent_humidity = Round(($humidity / $humidity_max) * 100 , 0);
 $percent_wind_speed = Round(($wind_speed / $wind_speed_max) * 100 , 0);
 //
 
