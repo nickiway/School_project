@@ -1,0 +1,29 @@
+body{
+    background-color:#404040;
+}
+.menu{
+    position: relative;
+}
+.order{
+    background-color: #fff;
+    height:calc(100vh - 228px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.order___body-field{
+    width:100%;
+    height:100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.order__body-input{
+    width:100%;
+    margin: auto 100px;
+    height:50%;
+    background-color: #404040;
+    border-radius: 40px;
+    display: flex;
+    justify-content: center;
+}
