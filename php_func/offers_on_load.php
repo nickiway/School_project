@@ -1,4 +1,5 @@
 <?php
+
 $connect = mysqli_connect('localhost', 'mysql', 'mysql', 'paradise_tour');
 $num = $_GET['num'];
 $sorting = $_GET['sorting'];

@@ -1,18 +1,8 @@
 <?php
+require "php_func/country_info.php";
+$get_search = $_GET['search'];  
 $sql_offer = "SELECT * FROM offers WHERE country LIKE '%$get_search%' OR city LIKE '%$get_search%' ORDER BY $sorting LIMIT 4";
 $result = mysqli_query($connect, $sql_offer);
-$result_value = "SELECT MAX(cost) as `maxcost` FROM `offers`";
-$result_wifi = "SELECT MAX(WiFi) as `maxwifi` FROM `offers`";
-$result_fun = "SELECT MAX(fun) as `maxfun` FROM `offers`";
-$result_safety = "SELECT MAX(safet) as `maxsafe` FROM `offers`";
-$result_max_cost = mysqli_query($connect, $result_value);
-$result_max_wifi = mysqli_query($connect, $result_wifi);
-$result_max_fun = mysqli_query($connect, $result_fun);
-$result_max_safe = mysqli_query($connect, $result_safety);
-$max = mysqli_fetch_array($result_max_cost);
-$max_cost = mysqli_fetch_array($result_max_wifi);
-$max_fun = mysqli_fetch_array($result_max_fun);
-$max_safe = mysqli_fetch_array($result_max_safe);
 $offers = array();
 while($row = mysqli_fetch_assoc($result)){
     $offers [] = $row;
