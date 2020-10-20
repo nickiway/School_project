@@ -2,7 +2,6 @@
 require "php_func/connection.php"; 
 require "php_func/sorting.php";
 require "php_func/currency.php";
-$get_search = $_GET['search'];
 $get_elem = mysqli_query($connect ,"SELECT * FROM offers WHERE country LIKE '%$get_search%' OR city LIKE '%$get_search%' ORDER BY $sorting LIMIT 10"); 
 foreach ($offers as $offer):
 $pressure = $offer['Pressure'];
@@ -93,15 +92,16 @@ echo "<div class = 'offers__dark__elem'>";
 
 echo "<div class = 'offers__info__block'>
 <div class= 'exit-more'>✖</div>";
-echo "<div class = 'offers__parent__image' style = 'background-image:url($image)'>
-<div class= 'exit-more-phone'>✖</div>
-<div class ='video__dark'></div>
-<div class  =  'name-center__row'>
-<div class = 'name-center__element'>$city</div>
-<div class = 'name-center__element' >$country</div>
-<div class = 'center-travel_button'><button class = 'travel-button'>Travel to $city</button></div>
-</div>
-</div>";
+    echo "
+    <div class = 'offers__parent__image' style = 'background-image:url($image)'>
+        <div class= 'exit-more-phone'>✖</div>
+        <div class ='video__dark'></div>
+        <div class  =  'name-center__row'>
+            <div class = 'name-center__element'>$city</div>
+            <div class = 'name-center__element' >$country</div>
+            <div class = 'center-travel_button'><button class = 'travel-button'>Travel to $city</button></div>
+        </div>
+    </div>";
 echo "
 <div class = 'tabs'>
  <a class = 'be-up' href = '#first/$link'><div id =  '1' class='tabs__items'>Scrores</div></a>

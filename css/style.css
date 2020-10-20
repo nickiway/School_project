@@ -358,6 +358,7 @@ margin:10px auto;
 }
 .offers__info__block{
     margin:40px auto;
+    min-height: auto;
     max-width:1000px;   
     background-color: #404040; 
     max-height:calc(100% - 80px);
@@ -818,7 +819,7 @@ textarea {resize:horizontal;}
 }
 .tabContent{
     display: none;
-    min-height:300px;
+    min-height:100px;
     width:100%;
     background-color: #404040;
     color:#fff;
