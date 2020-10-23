@@ -3,6 +3,8 @@ require "php_func/currency.php";
 require "php_func/offers.php";
 require "php_func/sorting.php";
 require "php_func/connection.php";
+require "php_func/mailing.php";
+require "php_func/offers.php";
 require "php_func/country_info.php";
 ?>
 
@@ -27,17 +29,26 @@ $(document).ready(function()
                 data = jQuery.parseJSON(data);
                 if(data.length > 0){
                     $.each(data, function(index, data){
-                        var width_cost = 100 * data.cost / <?echo $cost_max; ?>;
+                        var width_cost = Math.round(100 * data.cost / <?echo $cost_max; ?>);
                         var cost_color;
 
-                        var width_wifi = 100 * data.WiFi / <?echo $wifi_max ?>;
+                        var width_wifi = Math.round(100 * data.WiFi / <?echo $wifi_max ?>);
                         var wifi_color;
                         
-                        var width_fun = 100 * data.fun / <?echo $fun_max; ?>;
-                        var fun_color;
+                        var cost_units = "<?= $cost_name;?>";
+                        var degree_units = "<?= $degree_name;?>";   
+                        var width_fun = Math.round(100 * data.fun / <?echo $fun_max; ?>);
+                        var fun_color; 
 
-                        var width_safe = 100 * data.safet / <?echo $safety_max; ?>;
+                        var width_safe = Math.round(100 * data.safet / <?echo $safety_max; ?>);
                         var safe_color;
+                    // Arrays of charts     
+                    var qualities_names = ['Wifi Level','Cost for month','Fun Level','Safe Level','Temperature (now)','Pressure (now)','Humidity (now)','Wind speed (now)'];
+                    var the_array_of_percent = [width_wifi,width_cost,width_fun,width_safe];
+                    
+                    var units = ['Mps',cost_units,' / 10 points',' / 10 points',degree_units,'mil.of.mer','/ 100 %', 'm / s'];
+                    var images_href = ['../icons/internet.svg','../icons/money.svg','../icons/happy-hour.svg','../icons/safety.svg','../icons/internet.svg','../icons/internet.svg','../icons/internet.svg','../icons/internet.svg','../icons/internet.svg'];
+                       
 
                         if(width_fun > 30 & width_fun < 50){
                             fun_color = "#ff9933";
@@ -192,15 +203,16 @@ $(document).ready(function()
                       +  "</div>"
                       );
                       $(function () {
-                        for (var i = 0; i <= 1; i++) {
+                        for (var i = 0; i < <?=$count_array / 2;?>; i++) {
                             $('#1'+ data.city +'').append($("<div class = 'offers__graphics__more'>"+
                                                         "<div class='offers__graphics-resized'>"+
                                                             "<div class='short-info-charts'>"+
                                                                 "<img src = '../icons/up.svg'>"+
-                                                                "<div class = 'offers__signs-more'>$qualities_names[$i]</div>"+
+                                                                "<div class = 'offers__signs-more'>"+ qualities_names[i] +"</div>"+
                                                             "</div>"+
                                                             "<div class = 'offers__graphics-body'>"+
-                                                                ""+
+                                                                " <div class ='offers__element-more' style = 'background-color:green;width:"+ width_cost +"%''>"+
+                                                                "</div>"+
                                                             "</div>"+
                                                         "</div>"+
                                                     "</div>"
@@ -208,12 +220,12 @@ $(document).ready(function()
                         }
                         });
                         $(function () {
-                        for (var i = 0; i <= 1; i++) {
+                        for (var i =  <?=$count_array / 2;?>; i < <?=$count_array;?>; i++) {
                             $('#2'+ data.city +'').append($("<div class = 'offers__graphics__more'>"+
                                                         "<div class='offers__graphics-resized'>"+
                                                             "<div class='short-info-charts'>"+
                                                                 "<img src = '../icons/up.svg'>"+
-                                                                "<div class = 'offers__signs-more'>$qualities_names[$i]</div>"+
+                                                                "<div class = 'offers__signs-more'>$</div>"+
                                                             "</div>"+
                                                             "<div class = 'offers__graphics-body'>"+
                                                                 ""+
