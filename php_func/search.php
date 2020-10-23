@@ -17,67 +17,16 @@ $cost = round($offer['cost'] * $currency_value_US / $currency_value);
 $id = $offer['ID_offer'];$country = $offer['country'];
 $city = $offer['city'];$basic_cost = $offer['cost'];
 require "php_func/country_info.php";  
-$width_cost_mno = 100 * $offer['cost'];
-$width_cost = $width_cost_mno  / $max['maxcost'];      
-$width_wifi_mno = 100 * $offer['WiFi'];
-$width_wifi = $width_wifi_mno  / $max_cost['maxwifi'];      
-$width_fun_mno = 100 * $offer['fun'];
-$width_fun = $width_fun_mno  / $max_fun['maxfun'];      
-$width_safe_mno = 100 * $offer['safet'];
-$width_safe = $width_safe_mno  / $max_safe['maxsafe'];
-//arrays
-/*
-
-*/
-//    Цвета для  граффиков
-$color_cost;$color_wifi;
-$color_fun;$color_safety;
+// Front charts colors
+$color_cost;
+$color_wifi;
+$color_fun;
+$color_safety;
 // Graphics
-if($width_cost > 30 && $width_cost < 50)
-{   
-    $color_cost = "#ff9933";
-}
-elseif($width_cost < 30)
-{
- $color_cost = "red";
-}
-else{
-    $color_cost = "green ";
-}
-
-if($width_wifi < 30)
-{
- $color_wifi = "red";
-}
-elseif($width_wifi>30  && $width_wifi < 50)
-{
-    $color_wifi = "#ff9933";
-}
-else{
-    $color_wifi = "green";
-}
-
-if($width_safe > 30 & $width_safe < 50){
-    $color_safety = "#ff9933";
-}
-elseif($width_safe<30)
-{
-    $color_safety = "red";
-}
-else{
-    $color_safety = "green";
-}
-
-if($width_fun > 30 & $width_fun < 50){
- $color_fun = "#ff9933";
- }
- elseif($width_fun< 30)
- {
-     $color_fun = "red";
- }
- else{
-     $color_fun = "green";
- }         
+//Cost Color
+if($percent_cost >= 50){$color_cost="green";}
+else if($percent_cost < 50 && $percent_cost >= 30){$color_cost ="orange";}
+else{$color_cost="red";}  
 echo"<div class = 'offers__card' style = 'background-image:url($image)'>"; 
 echo "<div class = 'offers__dark__elem'>";
 
@@ -106,6 +55,10 @@ echo "
     <div class =  'graphs__container'>
         <div class =  'graphs__element'>";
         for ($i=0; $i <$count_array/2 ; $i++) { 
+            if($the_array_of_percent[$i] >= 50){$charts_color="green";}
+            else if($the_array_of_percent[$i] >= 30 && $the_array_of_percent[$i] < 50){
+            $charts_color ="#ff9933";}
+            else {$charts_color = "red";}
             echo"<div class = 'offers__graphics__more'>
             <div class='offers__graphics-resized'>
                 <div class='short-info-charts'>
@@ -114,7 +67,7 @@ echo "
                 </div>
                 
                 <div class = 'offers__graphics-body'>
-                    <div class ='offers__element-more' style = 'background-color:$color_cost;width:$the_array_of_percent[$i]";echo"%''>
+                    <div class ='offers__element-more' style = 'background-color:$charts_color;width:$the_array_of_percent[$i]";echo"%''>
                     <span>
                     $the_array_of_qualities[$i] $units[$i]</span>
                     </div>
@@ -126,6 +79,10 @@ echo "
 
         <div class =  'graphs__element'>";
         for ($i=$count_array/2 ; $i <$count_array ; $i++) { 
+            if($the_array_of_percent[$i] > 50){$charts_color="green";}
+            else if($the_array_of_percent[$i] > 30 && $the_array_of_percent[$i] < 50){
+            $charts_color ="#ff9933";}
+            else {$charts_color = "red";}
             echo"<div class = 'offers__graphics__more'>
             <div class='offers__graphics-resized'>
                 <div class='short-info-charts'>
@@ -134,7 +91,7 @@ echo "
                 </div>
                 
                 <div class = 'offers__graphics-body'>
-                    <div class ='offers__element-more' style = 'background-color:$color_cost;width:$the_array_of_percent[$i]";echo"%''>
+                    <div class ='offers__element-more' style = 'background-color:$charts_color;width:$the_array_of_percent[$i]";echo"%''>
                     <span>
                     $the_array_of_qualities[$i] $units[$i]</span>
                     </div>

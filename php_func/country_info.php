@@ -28,19 +28,36 @@ $percent_fun = Round(($fun / $fun_max) * 100 , 0);
 $percent_safety = Round(($safe / $safety_max) * 100 , 0);
 $percent_degree = Round(($degree / ($degree_max * $degree_value + $degree_value_add)) * 100 , 0);
 $percent_pressure = Round(($pressure / $pressure_max) * 100 , 0);
-$percent_humidity = Round(($humidity / $humidity_max) * 100 , 0);
+$percent_humidity = $humidity;
 $percent_wind_speed = Round(($wind_speed / $wind_speed_max) * 100 , 0);
-$the_array_of_qualities = array($wifi,$cost,$fun,$safe,$degree,$pressure,$humidity,$wind_speed);
+//Arrays
 
-$the_array_of_percent = array($percent_wifi, $percent_cost,$percent_fun,$percent_safety,$percent_degree,$percent_pressure,$percent_humidity,$percent_wind_speed);
+//The equals qualities
 
-$qualities_names = array('Wifi Level','Cost for month','Fun Level','Safe Level','Temperature (now)','Pressure (now)','Humidity (now)','Wind speed (now)');
+$the_array_of_qualities = array($cost,$wifi,$fun,$safe,$degree,$pressure,$humidity,$wind_speed);
 
-$units = array('Mps',$cost_name,' / 10 points',' / 10 points',
+//The percent charts
+
+$the_array_of_percent = array($percent_cost,$percent_wifi, $percent_fun,$percent_safety,$percent_degree,$percent_pressure,$percent_humidity,$percent_wind_speed);
+
+//The qualities names
+
+$qualities_names = array('Cost for month','Wifi Level','Fun Level','Safe Level','Temperature (now)','Pressure (now)','Humidity (now)','Wind speed (now)');
+
+//The units
+
+$units = array($cost_name,'Mps',' / 10 points',' / 10 points',
 $degree_name, 'mil.of.mer','/ 100 %', 'm / s');
 
-$images_href = array('../icons/internet.svg','../icons/money.svg','../icons/happy-hour.svg','../icons/safety.svg','../icons/internet.svg','../icons/internet.svg','../icons/internet.svg','../icons/internet.svg','../icons/internet.svg');
-//count array 
+//The images links
+
+$images_href = array('../icons/money.svg','../icons/internet.svg','../icons/happy-hour.svg','../icons/safety.svg','../icons/internet.svg','../icons/internet.svg','../icons/internet.svg','../icons/internet.svg','../icons/internet.svg');
+
+//Count array 
+
 $count_array = count($the_array_of_percent);
+//Common color
+
+$charts_color;
 
 ?>

@@ -29,7 +29,8 @@ while($row = mysqli_fetch_assoc($result)){
       $country = $offers['country'];
    //   Город
       $city = $offers['city'];
-   
+
+      //
       $width_cost_mno = 100 * $offers['cost'];
       $width_cost = $width_cost_mno  / $max['maxcost'];
    
