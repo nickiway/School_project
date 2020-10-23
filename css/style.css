@@ -298,7 +298,7 @@ margin:10px auto;
 .offers__graphics__more{
     display:flex;  
     border:1px solid #fff;
-    width: 100%;
+    width:calc(100% - 2px);
 }
 .offers__graphics__first{
     margin-top:20px;
@@ -728,7 +728,8 @@ textarea {resize:vertical;}
 textarea {resize:horizontal;}   
 
 .graphs__container{
-    width:100%;
+    width:calc(100% - 2px);
+    overflow-y: auto;
     display: flex;
     min-height:200px;
     justify-content: center;
