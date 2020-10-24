@@ -140,7 +140,7 @@ require "php_func/country_info.php";
                 </form>
             </div>    
             <?php
-                require "php_func/search.php"; 
+                require "php_func/cards.php"; 
                 ?>
         </div>
         </div>

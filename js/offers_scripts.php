@@ -149,7 +149,7 @@ dark.fadeOut("slow");
                 "<div class = 'offers__dark__elem'>"+
                     "<div class = 'offers__info__block'>"+
                         "<div class= 'exit-more'>✖</div>"+
-                        "<div class = 'offers__parent__image' style = 'background-image:url("+ data.image +")'><div class = 'video__dark'></div>"+
+                        "<div class = 'offers__parent__image' style = 'background-image:url("+ data.image +")'><div class= 'exit-more-phone'>✖</div><div class = 'video__dark'></div>"+
                             "<div class  =  'name-center__row'>"+
                                 "<div class = 'name-center__element'>"+ data.city +"</div>"+
                                 "<div class = 'name-center__element' >"+ data.country +"</div>"+

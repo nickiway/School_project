@@ -1,13 +1,14 @@
 <?php
-require "php_func/country_info.php";
+require "country_info.php";
 $get_search = $_GET['search'];  
-$sql_offer = "SELECT * FROM offers WHERE country LIKE '%$get_search%' OR city LIKE '%$get_search%' ORDER BY $sorting LIMIT 4";
+$sql_offer = "SELECT * FROM offers INNER JOIN votes ON (offers.`id_votes`=votes.`id_votes`) WHERE country LIKE '%$get_search%' OR city LIKE '%$get_search%' ORDER BY $sorting LIMIT 4";
 $result = mysqli_query($connect, $sql_offer);
 $offers = array();
 while($row = mysqli_fetch_assoc($result)){
     $offers [] = $row;
     // Присваиваем все значения бд переменным 
     //  link
+    $if_votes_1 = $offers['id_votes']['1'];
     $link = $offers['link'];
 // Регион Европа Америка и т.д
    $region = $offers['Region'];  
@@ -93,6 +94,6 @@ while($row = mysqli_fetch_assoc($result)){
        else{
            $color_fun = "green";
        }
-}
-?>
+
+    }
   
