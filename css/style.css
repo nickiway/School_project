@@ -797,7 +797,6 @@ textarea {resize:horizontal;}
     border-top:3px solid #fff;
     background-color: #404040;
     display: flex;
-    justify-content: center;
 }
 .tabs__items{
     flex: 0 1 20%;
@@ -809,6 +808,9 @@ textarea {resize:horizontal;}
     font-weight: bold;
     align-items: center;
     color:#fff;
+}
+.tabs__link{
+margin: auto auto;
 }
 .tabsContent{
     width:100%;

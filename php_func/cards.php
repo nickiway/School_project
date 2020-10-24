@@ -44,11 +44,11 @@ echo "<div class = 'offers__info__block'>
     </div>";
 echo "
 <div class = 'tabs'>
- <a class = 'be-up' href = '#first/$link'><div id =  '1' class='tabs__items'>Scrores</div></a>
- <a class = 'be-up' href = '#second/$link'><div id = '2'class='tabs__items'>Cost Of Living</div></a>
- <a class = 'be-up' href = '#third/$link'><div id = '3' class='tabs__items'>Pros And Cons</div></a>
- <a class = 'be-up' href = '#fourth/$link'><div id = '4' class='tabs__items'>Paradise Guide</div></a>
- <a class = 'be-up' href = '#fifth/$link'><div id = '5' class='tabs__items'>Local Introduction</div></a>
+ <a class = 'tabs__link' href = '#first/$link'><div id =  '1' class='tabs__items'>Scrores</div></a>
+ <a class = 'tabs__link' href = '#second/$link'><div id = '2'class='tabs__items'>Cost Of Living</div></a>
+ <a class = 'tabs__link' href = '#third/$link'><div id = '3' class='tabs__items'>Pros And Cons</div></a>
+ <a class = 'tabs__link' href = '#fourth/$link'><div id = '4' class='tabs__items'>Paradise Guide</div></a>
+ <a class = 'tabs__link' href = '#fifth/$link'><div id = '5' class='tabs__items'>Local Introduction</div></a>
 </div>
 <div class = 'tabsContent'>
  <div id = 'first/$link'  class='tabContent'>
