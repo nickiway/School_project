@@ -51,7 +51,7 @@ require "php_func/autohorisation.php";
                                 <div class = "login__warning" style  = "<?=$error_passwordConfirm?>">Your passwords do not match.</div>
                                 <div class="login__input"><p><label for="name">Enter your name</label></p><input type="text" name ="name"  autocomplete = "off" required></input></div>
                                 <div class = "login__warning" style  = "<?=$error_name?>">Something wrong with your name, you have entered wrong simbols.</div>
-                                <div><input id ="avatar" type="file" name ="avatar"></input></div>
+                                <div><input id ="avatar" type="file" accept="image/*" name ="avatar"></input></div>
                                 <div class="login__input">
                                     <label for="avatar"><div class = "file__button" for="avatar">Enter your avatar</div></label>
                                 </div>

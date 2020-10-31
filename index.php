@@ -28,9 +28,9 @@ require "php_func/country_info.php";
     </div>
     <!-- The menu -->
 <div class="intro">
-    <div class="menu">
+    <div class="menu menu-main">
         <div class="menu__logo">
-        <div class="menu__item__logo" onclick = "more_info()" ondblclick="window.location.href='index.php'">
+        <div class="menu__logo__item" onclick = "more_info()" ondblclick="window.location.href='index.php'">
             <span tooltip="Click to open nav, double click to go home" flow = "right">
                 <img src="icons/logo.png" alt="">
                 <span class = "menu__sign"><img src="icons/down-arrow.png" alt=""></span>
@@ -168,6 +168,7 @@ require "php_func/country_info.php";
     </div>
     </div>
     </div>
+    <script src="//code-ya.jivosite.com/widget/rAluLeGmjt" async></script>
     <script src = "js/common.js"> </script>
     <?php
     if($get_search == "" ||  mysqli_num_rows($get_elem) < 1){

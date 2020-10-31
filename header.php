@@ -8,7 +8,7 @@
 <div class="intro">
     <div class="menu">
         <div class="menu__logo">
-        <div class="menu__item__logo" onclick = "more_info()" ondblclick="window.location.href='index.php'">
+        <div class="menu__logo__item" onclick = "more_info()" ondblclick="window.location.href='index.php'">
             <span tooltip="Click to open nav, double click to go home" flow = "right">
                 <img src="icons/logo.png" alt="">
                 <span class = "menu__sign"><img src="icons/down-arrow.png" alt=""></span>
