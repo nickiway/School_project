@@ -444,7 +444,15 @@ text-shadow: none;
   color:skyblue;
 }
 .news-cards img{
-  width:100%;   
+  filter: contrast(1.4);
+  transform: scale(1.4);
+  transition: .5s;
+  height:100%;   
+}
+.news-cards:hover  img{
+  filter: contrast(1);
+  transform: scale(1);
+  transition: .5s;
 }
 .news-cards__title{
   font-size: 22px;
@@ -500,4 +508,22 @@ text-shadow: none;
   margin:30px auto;
   font-weight: bold;
   justify-content: center;
+}
+.news-more{
+  background-repeat:no-repeat;
+  background-position:center;
+  background-attachment: fixed;
+  filter: contrast(1.4);
+  background-size:cover;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0px 0px 500 px #fff inset;
+  height:500px;
+}
+
+.news-more__header{
+  border-top:5px solid #fff;
+  border-bottom:5px solid #fff;
 }

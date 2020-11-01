@@ -4,3 +4,7 @@
 .no-overflow-x{
     overflow-x:hidden !important;
 }
+.darked-menu{
+    color:#000 !important;
+    text-shadow: none !important;
+}   
