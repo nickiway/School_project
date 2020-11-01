@@ -10,14 +10,12 @@ require "php_func/connection.php";
     <link rel="stylesheet" href="css/media.css">
     <link rel="shortcut icon" href="icons/favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="css/animate.css">
+    <link rel="stylesheet" href="css/helper.css">
     <script src="js/wow.min.js"></script>
     <script>new WOW().init();</script>
     <title>About Us</title>
-    <style>
-        body{overflow-x:hidden;}
-    </style>
 </head>
-<body>
+<body class = "darked-body no-overflow-x">
     <?php
     require "header.php";
     ?>
@@ -49,12 +47,16 @@ require "php_func/connection.php";
                     </div>
                 </div>
             </div>
-            <div class="news">
+            <div class="news">        
+                    <p class = "news__header wow zoomIn">Get the last news</p>
+                </div>
+                
                 <div class="news__row wow slideInUp">
                     <?php
-                        require "php_func/news.php";
+                        require "php_func/news_script.php";
                     ?>
                 </div>
+                
             </div>
         </div>
     </div>
