@@ -39,11 +39,6 @@ require "php_func/country_info.php";
                 </div>
         </div>
             <ul class = "menu__row" >
-                <li class="search_item">
-                    <form method="get">
-                        <input type="search" name = "search" autocomplete = "off"  placeholder = "Find The City or Country">
-                    </form>
-                </li>
                 <li class="menu__item" onclick = "window.location.href='about.php'">About us</li>
                 <li class="menu__item"onclick = "window.location.href='order_tour.php'">Order the tour</li>
                 <li class="menu__item"onclick = "window.location.href='about.php'">Forum</li>
@@ -106,8 +101,12 @@ require "php_func/country_info.php";
                 <!-- first block -->
                     <div class="filter__right__block">
                         <button onclick = "filter_up()" class = "filter__button filter__button__active">Filter</button>
-                        <button class = "filter__button">Add Filter</button>
-                    </div>
+                        <li class="search_item">
+                            <form method="get">
+                                <input type="search" name = "search" autocomplete = "off"  placeholder = "Find The City or Country">
+                            </form>
+                        </li>
+                     </div>
                 <!-- second block -->
                     <div class = "filter__left__block">    
                     <button style = "width:100px;">SSSS</button>          

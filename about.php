@@ -1,15 +1,19 @@
 <?
 require "php_func/connection.php";
+$companyOffers = array("1","2" );
+$offersHeaders = array("11","22");
+$offersIcons = array("tourism-ico","tourism-ico");
 ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/animate.css">
     <link rel="stylesheet" href="css/common.css">
     <link rel="stylesheet" href="css/media.css">
+    <link rel="stylesheet" href="css/about.css">
     <link rel="shortcut icon" href="icons/favicon.ico" type="image/x-icon">
-    <link rel="stylesheet" href="css/animate.css">
     <link rel="stylesheet" href="css/helper.css">
     <script src="js/wow.min.js"></script>
     <script>new WOW().init();</script>
@@ -49,14 +53,28 @@ require "php_func/connection.php";
             </div>
             <div class="news">        
                     <p class = "news__header wow zoomIn">Get the last news</p>
-                </div>
                 
-                <div class="news__row wow slideInUp">
+                <div class="news__row wow fadeIn">
                     <?php
                         require "php_func/news_script.php";
                     ?>
                 </div>
-                
+            </div>
+            <div class="our-offers">
+                <h2 class = "wow zoomIn ">We offer you:</h2>
+                <div class="our-offers__row">
+                    <?
+                    for ($i=0; $i <count($companyOffers) ; $i++) { 
+                        echo"
+                        <div class ='our-offers__cards'>
+                            <div class='our-offers__svg'>
+                                <img src='".ICONDIR.$offersIcons[$i].".svg' alt='$offersHeaders'>
+                            </div>
+                        </div>
+                        ";
+                    }
+                    ?>
+                </div>
             </div>
         </div>
     </div>

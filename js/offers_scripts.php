@@ -29,8 +29,16 @@ $('#loadImg').fadeOut("fast");
 data = jQuery.parseJSON(data);
 if(data.length > 0){
 $.each(data, function(index, data){
+
 // Degree
-var degree = Math.round(data.degree * <?echo $degree_value;?> +<?echo $degree_value_add;?>) ;
+$non_rounded_degree =data.degree * <?echo $degree_value;?> +<?echo $degree_value_add;?>;
+//Round Up Function
+function roundUp(num, precision) {
+  precision = Math.pow(10, precision)
+  return Math.ceil(num * precision) / precision
+}
+//Degree Value
+var degree = roundUp($non_rounded_degree, 1);
 //Real Cost 
 var cost = Math.round(data.cost * <?echo $currency_value_US;?> / <?echo $currency_value;?>) ;
 //Width percent
@@ -42,9 +50,12 @@ var wifi_color;
 // Width Fun
 var width_fun = Math.round(100 * data.fun / <?echo $fun_max; ?>);
 var fun_color;
-// Width degree
-var width_degree = Math.round(100 * data.degree/ <?=$degree_max?>);
+
+// Degree Parametrs
+var degree_const = <?= $degree_max + abs($degree_min)?>;
+var width_degree = Math.round((<?=abs($degree_min)?> + Number(data.degree))/degree_const * 100 ) ;
 var degree_color;
+if(width_degree < 15) { width_degree == 15;}
 // Width Pressure
 var width_pressure = Math.round(100 * data.Pressure/ <?=$pressure_max?>);
 var pressure_color;
@@ -71,7 +82,7 @@ var units = [cost_units,'Mps',' / 10 points',' / 10 points',degree_units,'mil.of
 // Percent images link
 var images_href = ['../icons/money.svg','../icons/internet.svg','../icons/happy-hour.svg','../icons/safety.svg','../icons/internet.svg','../icons/internet.svg','../icons/internet.svg','../icons/internet.svg','../icons/internet.svg'];
 // The value of charts
-var array_of_qualities = [cost, data.WiFi,data.fun, data.safet,data.degree,data.Pressure,data.Humidity,data.Wind_speed];
+var array_of_qualities = [cost, data.WiFi,data.fun, data.safet,degree ,data.Pressure,data.Humidity,data.Wind_speed];
 // Color conditions
 // Charts common color 
 var charts_color;

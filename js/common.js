@@ -4,6 +4,13 @@ window.onload = function () {
     document.body.classList.add('loaded');
     document.body.classList.remove('loaded_hiding');
     }, 500);
+
+    var currentId = localStorage.getItem('lasttab');
+    var  tabscontent = document.getElementsByClassName('tabscontent');
+    for (let i = 0; i < tabscontent.length; i++) {
+        tabscontent[i].style.display = "none";
+    }
+    document.getElementById(currentId).style.display = "flex"; 
     }
      var amountScrolled = 200;
 
@@ -24,4 +31,5 @@ window.onload = function () {
     function more_info(){
         document.getElementById("menu__more__info").classList.toggle('active');
     }
+    
    

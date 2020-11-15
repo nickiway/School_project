@@ -1,8 +1,27 @@
 *{
-    margin:0;
-    padding:0;
-    font-family: sans-serif;
-    }
+  margin:0;
+  padding:0;
+  font-family:sans-serif;
+  box-sizing: border-box;
+}
+button, input[type = submit] {
+  cursor: pointer;
+}
+.casual_btn{
+  background-color: #1273EB;
+  color:#fff;
+  text-shadow: 0px 0px 3px #000;
+  font-weight: bold;
+  border-radius: 20px;
+  border:none;
+  box-sizing: border-box;
+  padding:10px;
+  transition: .5s;
+}
+.casual_btn:hover{
+    box-shadow: 0px 0px 10px #fff inset;
+    transition: .5s;
+}
 .warning{
   width:100%;
   text-align: center;
@@ -10,9 +29,6 @@
   display:none;
   font-size:15px;
   text-shadow:none;
-}
-button{
-  cursor:pointer;
 }
 a{
   text-decoration: none;
@@ -331,16 +347,7 @@ text-shadow: none;
   border-radius: 10px;
   border:2px solid #1273EB;
 }
-.about-header{
-  height:calc(100vh - 114px);
-  background-image: url("https://wallpaperaccess.com/full/185289.jpg");
-  filter: contrast(1.6);
-  box-shadow: 0px 0px 100px #fff inset;
-  position: relative;
-  background-position: center;
-  background-size: cover;
-  background-repeat: no-repeat;
-}
+
 .dark-element{
   position: absolute;
   top:0;
@@ -366,164 +373,4 @@ text-shadow: none;
   font-size: 20px;
   font-weight: bold;
 }
-.about-body{
-  height:600px;
-  position: relative;
-}
-.about-body h2{
-  width:100%;
-  text-align: center;
-  margin: 50px auto;
-  color:#fff;
-  font-size: 28px;
-  text-shadow: 0px 0px 3px #000;
-  text-transform: capitalize;
-  word-wrap: break-word;
-}
-.about-body__row{
-  margin: 40px auto;
-  display: flex;
-  justify-content: center;
-}
-.about-body__img{
-  width: 40vw;
-  margin:0px 20px;
-}
-.about-body__img img{
-  width:100%;
-  filter: contrast(1.2);
-  border-radius: 0px 80px;
-}
-.about-body__container{
-  background-color: gray;
-  width:40vw;
-  border:3px solid #1273EB;
-  box-sizing: border-box;
-  margin:0px 20px;
-  padding:30px;
-  border-radius: 80px 0px;
-}
-.about-body__title{
-  color:#fff;
-  font-size:24px;
-  font-weight: bold;
-  text-transform: uppercase;
-}
-.about-body__line{
-  width:150px;
-  border:none;
-  margin:20px 0px;
-  background-color: #1273EB;
-  height:5px;
-}
-.about-body__description{
-  margin:20px 0px;
-  font-size: 18px;
-  color:#fff;
-  word-spacing: 5px;
-}
-.news__row{
- display: flex;
- flex-wrap: wrap;
- justify-content: center; 
-}
-.news-cards{
-  margin:30px auto;
-  width: 350px;
-  box-sizing: border-box;
-  position: relative;
-  border:1px solid #fff;
-  background-color: #fff;
-  border-radius: 20px;
-  overflow: hidden;
-}
-.news-cards__more{
-  cursor: pointer;
-  float: right;
-  margin:10px 20px;
-  color:skyblue;
-}
-.news-cards img{
-  filter: contrast(1.4);
-  transform: scale(1.4);
-  transition: .5s;
-  height:100%;   
-}
-.news-cards:hover  img{
-  filter: contrast(1);
-  transform: scale(1);
-  transition: .5s;
-}
-.news-cards__title{
-  font-size: 22px;
-  color:#1273EB;
-  padding:10px;
-  font-weight: bold;
-}
-.news-cards__description{
-  font-size: 16px;
-  color:#000;
-  padding:10px;
-  font-weight: bold;
-}
-.news-cards:first-of-type::after{
-  content: "new";
-  color:#fff;
-  text-shadow: 0px 0px 3px #000;
-  text-align: center;
-  background-color: red;
-  position: absolute;
-  top:0;
-  padding:10px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border-radius: 0px 0px 0px 30px;
-  right:0px;
-}
-.news-cards__image{
-  background-position: center;
-  background-size: cover;
-  margin-bottom: 20px;
-  background-repeat: no-repeat;
-  height:200px;
-  overflow: hidden;
-}
-.news-cards__date{
-  text-transform: uppercase;
-  position: absolute;
-  top:0;
-  left: 0;
-  width: auto;
-  padding: 10px;
-  border-radius: 0px 0px 30px 0px;
-  background-color: #1273EB;
-  color:#fff;
-  text-shadow: 0px 0px 3px #000;
-}
-.news__header{
-  color:#fff;
-  font-size: 26px;
-  display: flex;
-  margin:30px auto;
-  font-weight: bold;
-  justify-content: center;
-}
-.news-more{
-  background-repeat:no-repeat;
-  background-position:center;
-  background-attachment: fixed;
-  filter: contrast(1.4);
-  background-size:cover;
-  position: relative;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  box-shadow: 0px 0px 500 px #fff inset;
-  height:500px;
-}
 
-.news-more__header{
-  border-top:5px solid #fff;
-  border-bottom:5px solid #fff;
-}

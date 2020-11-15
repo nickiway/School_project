@@ -1,6 +1,8 @@
 <?php
 error_reporting(0);
 session_start();
+define("The_news_Directory", "News_Images/");
+define("ICONDIR", "icons/");
 define("SERVER",'localhost');
 define("LOGIN",'mysql');
 define("PASSWORD",'mysql');

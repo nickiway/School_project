@@ -16,7 +16,7 @@ if($_POST['submit']){
         $file_tmp_name = $_FILES['avatar']['tmp_name'];
         }
         else{
-        $file_name = "default.png"; 
+        $file_name = "default.png";
         $file_tmp_name = $file_name;
         }
         move_uploaded_file($file_tmp_name,$file_diraction.$file_name);
