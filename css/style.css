@@ -420,19 +420,20 @@ margin:10px auto;
     color:#fff;
     border-radius: 10px;
     min-width: 100px;
+    padding:0px 20px;
     font-size:15px;
     font-weight: 900;
     text-shadow: 0px 0px 3px #000;
     align-items: center;
     text-align: center;
     border:none;
-    transition: .4s;
+    transition: .5s;
 }
-.filter__button:nth-child(2){
-    margin:auto 40px;
-    color: #fff;
-    background-color:#666666;
-    min-width: 230px;
+.filter__button:hover{
+    background-color: #fff;
+    color:#1273EB;
+    text-shadow: none;
+    transition: .5s;
 }
 #filter__row{
     max-width:1320px;
@@ -718,8 +719,10 @@ a.back-to-top img {
     display: flex;
     justify-content: center;
     align-items: center;
-    padding:20px auto;
     min-height:200px;
+}
+#loadImg img{
+    height:128px;
 }
 a:active, a:focus { outline: none; }
 

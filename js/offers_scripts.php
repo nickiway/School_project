@@ -15,7 +15,7 @@ $(document).ready(function()
     var inprogress = false;
     var num = 4;
     $(window).scroll(function(){
-        if($(window).scrollTop()+$(window).height()+100 >= $(document).height() && !inprogress){
+        if($(window).scrollTop()+$(window).height() + 1 >= $(document).height() && !inprogress){
 $.ajax({
 url:'php_func/offers_on_load.php',
 method:'GET',
@@ -127,9 +127,9 @@ wifi_color = "green"
 }
 
 $(function(){
-var offer = $('.offers__card');
-offer.mouseover(function(){
-$(this).children('.offers__on__hover').hide();
+    var offer = $('.offers__card');
+    offer.mouseover(function(){
+    $(this).children('.offers__on__hover').hide();
 })
 offer.mouseout(function(){
 $(this).children('.offers__on__hover').show();

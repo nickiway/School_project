@@ -46,3 +46,35 @@
     color:#fff;
     margin:10px 0px;
 }
+.order-cards__row{
+    margin:0px 80px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+.order-card__item{
+    width:500px;
+    position: relative;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    border:1px solid #000;
+    margin:20px;
+    font-size: 20px;
+    border-radius: 20px;
+    overflow: hidden;
+    cursor: pointer;
+    filter: contrast(1.5);
+    height:300px;
+    background-color: #fff;
+}
+.order-card__title{
+    font-size: 26px;
+    text-align: center;
+    display: flex;
+    justify-content: center;    
+}
+.order__inforamation{
+    margin:20px;
+}

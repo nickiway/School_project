@@ -32,7 +32,7 @@ require "php_func/autohorisation.php";
                     <div class="signup__field" style = "align-items:center">
                         <div class = "login">
                         <div class="header">
-                            <a href="index.php"><img src="../icons/logo.png" alt=""></a>  
+                            <a href="index.php"><img src="icons/logo.png" alt=""></a>  
                         </div>    
                         <div class="header">
                             Log in Paradise

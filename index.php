@@ -106,7 +106,10 @@ require "php_func/country_info.php";
                                 <input type="search" name = "search" autocomplete = "off"  placeholder = "Find The City or Country">
                             </form>
                         </li>
-                     </div>
+                        <?
+                            if($_GET['search'] != "") echo "<button class = 'filter__button' onclick = \"window.location.href ='index.php'\">Cancel Search</button>"
+                        ?>
+                    </div>
                 <!-- second block -->
                     <div class = "filter__left__block">    
                     <button style = "width:100px;">SSSS</button>          
@@ -173,6 +176,10 @@ require "php_func/country_info.php";
     if($get_search == "" ||  mysqli_num_rows($get_elem) < 1){
         require "js/offers_scripts.php";
       }
+    ?>
+    <? 
+    if($_GET['search'] == "")
+    echo "<div id='loadImg'><img src='icons/load.gif' alt=''></div>"
     ?>
     <script src="js/wow.min.js"></script>
     <script src="js/main_page.js"></script>

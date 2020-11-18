@@ -3,6 +3,7 @@ error_reporting(0);
 session_start();
 define("The_news_Directory", "News_Images/");
 define("ICONDIR", "icons/");
+define("ORDERDIR",'Orders_images');
 define("SERVER",'localhost');
 define("LOGIN",'mysql');
 define("PASSWORD",'mysql');
