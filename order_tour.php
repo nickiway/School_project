@@ -32,11 +32,11 @@ require "php_func/Order.php";
                             <div class="order__form-block">
                                 <div class="order__input">
                                     <p class = "order__input-header">To</p>
-                                    <select name="to" require id="">
+                                    <select name="to" id="">
                                         <option value="Anywhere">Anywhere</option>
                                         <?
-                                        while($city = mysqli_fetch_assoc($citySelect)){
-                                            echo "<option value = ".$city['City'].">".$city['City']."</option>";
+                                        while($country = mysqli_fetch_assoc($countrySelect)){
+                                            echo "<option value = ".$country['Country'].">".$country['Country']."</option>";
                                         }
                                         ?>
                                     </select>
@@ -50,9 +50,9 @@ require "php_func/Order.php";
                                         <input require name = "dateTo" min = "<?=$todayDate?>"type="date">
                                 </div>      
                             </div>
-
+                            <!-- class = 'order-card__item text3d'  -->
                             <div class="order__form-block">
-                                <input type="submit"name = "sendOrder" value = "Find the Hotel" class = "standartStyle">
+                                <input type="submit" name = "sendOrder" value = "Find the Hotel" class = "standartStyle">
                             </div>
                         </div>
                     </form>
@@ -64,26 +64,30 @@ require "php_func/Order.php";
                 <?
                 while($row = mysqli_fetch_assoc($orders))
                 {
-                    #Hotel parametrs:
-                    $name = $row['Name'];
-                    $cost = $row['Cost'];
-                    $city = $row['City'];
-                    $imageSource = $row['image_source'];
-                    $country = $row['Country'];
-                    $dateStart = $row['DateStart'];
-                    $dateEnd = $row['DateEnd'];
-                    #Echo the cards:
-                    echo "
-                    <div onclick = \"window.location.href= 'order_tour_more.php#".$row['id']."'\" class = 'order-card__item text3d' style=  'background-image:url(".ORDERDIR."/$imageSource)'>
-                        <div class = 'dark-element displayBlock pd-30'>
-                            <div class = 'order-card__title'>
-                                $name
-                            </div>
-                            <p class = 'order__inforamation'>The cost for hotel renting :".$cost."$</p>
-                            <p class = 'order__inforamation'>The City ".$city." (".$country.")</p>
-                            <p class = 'order__inforamation'> Starts from:".$dateStart."</p>
-                            <p class = 'order__inforamation'> Ends to:".$dateEnd."</p>
-                        </div>
+                #Hotel parametrs:   
+                $imageSource = $row['imageSource'];
+                $country = $row['Country'];
+                $flag = $row['Flag'];
+                $hotelName = $row['Name'];
+                $capital = $row['Capital'];
+                $region = $row['Region'];
+                #Echo the cards:
+                echo "
+                <div class = 'order-card__item' onclick = \"window.location.href= 'order_tour_more.php#".$country."'\" '>
+                    <div class='order-card__image text3d' style = 'background-image:url(".ORDERDIR."/$imageSource)'>
+                    
+                    <div class='dark-element'>
+                        <img src='".FLAGDIR."/$flag.png' alt='$country'>
+                        <span class = 'order-crad__title'>$country</span>
+                    </div>
+                    
+                    </div>
+                    <div class='order-cards__description'
+                        <div class='order-cards__inforamation'>
+                            <p>Capital: ".$capital."</p>
+                            <p>Region: ".$region."</p>
+                            <p>Hotels: ".$hotelName."</p>
+                        </div>   
                     </div>
                     ";
                 }
