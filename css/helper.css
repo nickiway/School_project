@@ -16,6 +16,9 @@
 .floatLeft{
     float: left !important;
 }
+.signSpecial{
+    color:#1273EB;
+}
 .floatRight{
     float: right !important;
 }

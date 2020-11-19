@@ -91,3 +91,18 @@
     padding:20px;
 
 }
+.orders__warning{
+    margin:20px;
+    background-color: #fff;
+    border-radius: 40px;
+    display: flex;
+    justify-content: center;
+    padding:40px;
+    align-items: center;
+    font-weight: bold;
+    font-size: 20px;
+}
+.offers-cards__sign
+{
+    margin: 10px;
+}

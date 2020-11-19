@@ -16,13 +16,12 @@
             if(strtotime($dateTo) != '0000-00-00')  $dateTo = date('Y-m-d', strtotime('+14 days'));
             #Checking if the date period is correct
             $isdatebiger = $dateFrom < $dateTo;
-            
             if($isdatebiger == true && $to != "")
             {
                 #Case $to = Anywhere
                 if($CountryTo == 'Anywhere')
                 {
-                 $orders = mysqli_query($connect, "SELECT * FROM ordercountries INNER JOIN availablehotels ON ordercountries.Country = availablehotels.HotelCountry WHERE availablehotels.DateStart > '$dateFrom' AND availablehotels.DateEnd < '$dateTo' AND availablehotels.DateStart > '$todayDate' ORDER BY availablehotels.HotelCountry DESC");
+                 $orders = mysqli_query($connect, "SELECT * FROM ordercountries INNER JOIN availablehotels ON ordercountries.Country = availablehotels.HotelCountry WHERE availablehotels.DateStart > '$dateFrom' AND availablehotels.DateEnd < '$dateTo' AND availablehotels.DateStart > '$todayDate'");
                 }
                 else if($CountryTo != 'Anywhere')
                 {

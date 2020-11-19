@@ -62,15 +62,19 @@ require "php_func/Order.php";
         <div class = 'order-cards'>
             <div class = 'order-cards__row'>
                 <?
+                
                 while($row = mysqli_fetch_assoc($orders))
                 {
                 #Hotel parametrs:   
-                $imageSource = $row['imageSource'];
-                $country = $row['Country'];
-                $flag = $row['Flag'];
-                $hotelName = $row['Name'];
-                $capital = $row['Capital'];
-                $region = $row['Region'];
+                $imageSource = $row['imageSource'];//Image Backgrpund
+                $country = $row['Country'];//Country
+                $flag = $row['Flag'];//Flag
+                $hotelName = $row['Name'];//Hotel name
+                $cost = intval($row['Cost']);//Cost
+                $dateStart = $row['DateStart'];//dateStart
+                $dateEnd = $row['DateEnd'];//dateEnd
+                $capital = $row['Capital'];//Capital
+                $region = $row['Region'];//Region
                 #Echo the cards:
                 echo "
                 <div class = 'order-card__item' onclick = \"window.location.href= 'order_tour_more.php#".$country."'\" '>
@@ -84,9 +88,12 @@ require "php_func/Order.php";
                     </div>
                     <div class='order-cards__description'
                         <div class='order-cards__inforamation'>
-                            <p>Capital: ".$capital."</p>
-                            <p>Region: ".$region."</p>
-                            <p>Hotels: ".$hotelName."</p>
+                            <p class =  'offers-cards__sign'>Capital: ".$capital."</p>
+                            <p class =  'offers-cards__sign'>Region: ".$region."</p>
+                            <p class =  'offers-cards__sign'>Hotels: ".$hotelName."</p>
+                            <p class =  'offers-cards__sign'>Date From: ".$dateStart."</p>
+                            <p class =  'offers-cards__sign'>Dare Till: ".$dateEnd."</p>
+                            <p class =  'offers-cards__sign'>It costs for a night: ".round($cost/7)."</p>
                         </div>   
                     </div>
                     ";
