@@ -2,6 +2,21 @@
     margin:0;
     padding:0;
 }
+td {
+  text-align: center;
+}
+input[type = checkbox]{
+  height:24px;
+  width:24px;
+}
+table,td{
+  border:2px solid #000;
+  border-collapse: collapse ;
+  font-weight: bold;
+}
+td{
+  margin:0px;
+}
 .main{
     display: flex;
     height:100%;
@@ -13,6 +28,21 @@
 }
 .tabscontent{
     display: none;
+    height: 100%;
+    width:100%;
+}
+.tabscontent table{
+  margin:auto auto;
+}
+.TableAdmin{
+  width:100%;
+}
+.TableAdmin td {
+  width:25%;
+  padding: 10px;
+}
+.TableAdmin h2 {
+  margin:20px;
 }
 .main__pannel{
  background-color: #404040;
@@ -21,17 +51,49 @@
  max-height:100%;
  overflow-y: auto;
 }
+.table__switcher{
+  margin:10px;
+}
+.switch__block{
+  display: flex;
+  justify-content: center;
+}
+.switch__block-item{
+  display: flex;
+  justify-content: center;
+  margin:20px;
+}
+.table__switcher  a {
+  color:#000;
+}
 .main-statistic{
     width:100%;
     height:100%;
 }
 .main__header{
     width: 100%;
+    padding: 0px 50px;
     height:96.25px;
-    background-color: red;
+    background-color: #cacaca;
+    display: flex;
+    justify-content: flex-end;
+}
+.main__header span {
+  font-size: 20px;
+}
+.admin__basic-info{
+  display: flex;
+  justify-content: center;
+  padding:20px;
+  align-items: center;
+}
+.admin__basic-info img{
+  width:64px;
+  margin:0px 10px;
+  height:64px;
+  border-radius: 100%;
 }
 .main__table{
-
 height:calc(100vh - 96.25px);
 max-height: 100%;
 overflow-y: auto;
@@ -54,11 +116,14 @@ align-items: center;
     transition: .3s;
 }
 .main__user{
- display: flex;
  color:#fff;
+ text-align: center;
+ display: flex;
+ height:96.25px;
  letter-spacing: 1px;
- font-size: 20px;
+ font-size: 24px;
  align-items: center;
+ justify-content: center;
  padding: 20px;
  background-color: #595959;
 }
@@ -74,9 +139,6 @@ align-items: center;
 .main__pannel__item:hover {
     transform: translateX(20px);
     transition: .3s;
-}
-.table > span {
-     color:red;
 }
 
 #create-news{
@@ -120,3 +182,23 @@ align-items: center;
     font-weight: bold;
     font-size: 20px;
   }
+.edit{
+    display: flex;
+    justify-content: center;
+}
+.edit__item{
+   margin:20px;
+}
+.edit__item input {
+  width:100%;
+  padding:10px;
+  font-size: 16px;
+  border-radius: 5px;
+}
+.edit__title{
+  color:#1273EB;
+  text-align: center;
+  margin:20px;
+  font-weight: bold;
+  font-size: 24px;
+}

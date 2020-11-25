@@ -44,7 +44,7 @@ require "php_func/country_info.php";
                 <li class="menu__item"onclick = "window.location.href='order_tour.php'">Order the tour</li>
                 <li class="menu__item"onclick = "window.location.href='about.php'">Forum</li>
                 <li class="menu__item"onclick = "window.location.href='voting.php'">Vote Page</li>
-                <?      if(isset($_SESSION['logged_user']) && $_SESSION['logged_user']['Username'] == 'Admin'):?>  
+                <?if(isset($_SESSION['logged_user']) && $_SESSION['logged_user']['Status'] == 'Admin'):?>  
                     <li class="menu__item"onclick = "window.location.href='admins_page.php'">Admins Page</li>
                 <?endif;?>
             </ul>
