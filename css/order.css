@@ -167,6 +167,7 @@
 }
 .order__call-form{
     padding:50px;
+    margin:40px;
     overflow-x: auto    ;
     background-color: #fff;
     max-width:600px

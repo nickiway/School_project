@@ -1,59 +1,7 @@
 <?php
 require "php_func/connection.php";
-//The news start
-$news_way = "News_Images/";
-//If isset Submit news
-$images="";
-if(isset($_POST['Submit_news']))
-{
-    $images_array = $_FILES['Images']['name'];
-    if(count($images_array) >= 3)
-    {
-        $news_date = date("M j"); 
-        $news_text = $_POST['the_text_of_news'];    
-        $news_title = $_POST['title'];
-        for ($i=0; $i < count($images_array); $i++) 
-        { 
-            $file_tmp_name = $_FILES['Images']['tmp_name'][$i];
-            $file_name = $_FILES['Images']['name'][$i];
-            move_uploaded_file($file_tmp_name,$news_way.$file_name);
-            $images .= $_FILES['Images']['name'][$i]." ";  
-        }
-        if(empty($news_text) || empty($news_title) || empty($images) || empty($news_date))  $counter = 1;
-        if($counter != 1){
-            mysqli_query($connect, "INSERT INTO `news` (title_news,text_news,Image_news,Link,Date_news) VALUES ('$news_title','$news_text','$images','google.com','$news_date')");
-        }
-        else
-        {
-            die("nuh");
-        }
-    }
-    else
-    {
-        die("<p align = center>Nug</p>");
-    }
-}
-//The news end
-$page_num  = $_GET['mail_table'];
-if($page_num == "" || $page_num == "1"){
-    $page_num = 1;
-}
-else{
-    $page_num = $page_num * 5 - 5;
-}
-if(!isset($_SESSION['logged_user']) || $_SESSION['logged_user']['Username'] != 'Admin'){
-    header('Location:/index.php');
-}
-$all_rows = mysqli_query($connect, "SELECT * FROM mailing ORDER BY ID ASC");
-$num_rows =ceil(mysqli_num_rows($all_rows)/5); 
-if(isset($_POST['delete_mail'])){
-    $delete_the_email = $_POST['delete'];
-    $count = count($delete_the_email);
-    for ($i=0; $i < $count ; $i++) { 
-        mysqli_query($connect, "DELETE FROM mailing WHERE ID = '$delete_the_email[$i]'");
-    }
-}
-$get_mail = mysqli_query($connect, "SELECT * FROM mailing ORDER BY ID ASC LIMIT $page_num,5");
+require "php_func/adminAddNews.php";
+require "php_func/deleteFromMail.php";
 ?>
 <!DOCTYPE html>
 <html lang="en">
