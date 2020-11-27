@@ -25,7 +25,7 @@ if($_POST['submit']){
     $user_password = password_hash($_POST['password'],PASSWORD_DEFAULT);
     $user_passwordConfirm = $_POST['passwordConfirm'];
     $user_name = $_POST['name'];
-    $register = "INSERT INTO users (Username,Password_U,Email,avatar) VALUES ('$user_name' ,'$user_password', '$user_email', '$file_name')";
+    $register = "INSERT INTO users (Username,Password_U,Email,avatar,Status) VALUES ('$user_name' ,'$user_password', '$user_email', '$file_name','Standart')";
     $check_user = "SELECT Email FROM users WHERE Email = '$user_email'";
     $users_info = mysqli_query($connect,$check_user);
     $errors = array();

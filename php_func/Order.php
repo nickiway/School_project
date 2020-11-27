@@ -50,8 +50,8 @@
         $recallTime = $_POST['recallTime'];
         $fullName = $_POST['fullname'];
         $phone = $_POST['phone'];
-        mysqli_query($connect, "INSERT INTO usersorders (Fullname, UsersEmail, Phone, Recall_time, Objections) VALUES ('$fullName', '$usersEmail' ,
-        '$phone', '$recallTime', '$objection')");
+        mysqli_query($connect, "INSERT INTO usersorders (Fullname, UsersEmail, Phone, Recall_time, Objections, Examined) VALUES ('$fullName', '$usersEmail' ,
+        '$phone', '$recallTime', '$objection',0)");
    }
 ?>
 

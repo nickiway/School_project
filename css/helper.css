@@ -70,7 +70,7 @@
 .m-t-40{
     margin-top:40px !important;
 }
-.Delete{
+.Delete, .DeleteUser{
     border:red;
     background-color: red;
     color:#fff;
@@ -83,7 +83,7 @@
     padding:10px;
     width:200px;
 }
-.Edit{
+.Edit, .EditUser{
     font-weight: bold;
     font-size: 18px;
     margin:0px 20px;
@@ -95,4 +95,24 @@
     border-radius: 20px;
     padding:10px;
     width:200px;
+}
+
+
+/* Orders Table */
+.Commit, .Reject, .Undefined{
+    background-position: center;
+    background-size: cover;
+    background-color: transparent;
+    background-repeat: no-repeat;
+    width: 64px;
+    border:none;
+    background-color: #fff;
+    margin:20px;
+    display: none;
+    height:64px;
+    transition: .5s;
+}
+.Commit:hover, .Reject:hover, .Undefined:hover{
+    transform: scale(1.2);
+    transition: .5s;
 }

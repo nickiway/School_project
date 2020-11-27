@@ -12,7 +12,15 @@
         display: none;
     }
     .video__rassilka {
-        display: none;
+        display: none;  
+    }
+    .main__pannel{
+        position: absolute;
+        left:-300px;
+        z-index: 1000;
+    }
+    #toogleMenuAdmin{
+        display: block;
     }
 }
 @media screen and (max-width:400px){

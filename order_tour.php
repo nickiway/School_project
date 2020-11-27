@@ -150,7 +150,7 @@ require "php_func/currency.php";
 
             <div class ='order__inputBlokc'>
                 <p>For you objections</p>
-                <textarea name='objections' id='' cols='30' rows='10'></textarea>
+                <textarea name='objections' id='' cols='30' rows='3'></textarea>
             </div>
             
             <div class ='order__inputBlokc'><input name = 'SubmitOrder' class = 'standartStyle'type='submit'></div>

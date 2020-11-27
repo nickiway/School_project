@@ -6,11 +6,11 @@ require "php_func/autohorisation.php";
 <head>
 	<title>Paradise Travel — Best travel company</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../css/style.css">
-    <link rel="stylesheet" href="../css/animate.css">
-    <link rel="stylesheet" href="../css/common.css">
-    <link rel="icon" href="../icons/favicon.ico" type="image/x-icon">
-    <link rel="stylesheet" href="../css/media.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/animate.css">
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="icon" href="icons/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="css/media.css">
     </head>
 <body>
 <!--Pre_loader -->
