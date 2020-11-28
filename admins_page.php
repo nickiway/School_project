@@ -104,7 +104,8 @@ require "php_func/UsersOrders.php";
                                     <button  type = "button" id = "CancelUser" value ="Cancel">Cancel</button>
                                     <button  type = "button" id = "ChoseAllUser" value ="Cancel">Choose All</button>
                                 </div>
-                            </div>
+                            </div>    
+                        </div>
                             <?
 
                         if(isset($_POST['edit_User'])){
@@ -117,7 +118,7 @@ require "php_func/UsersOrders.php";
                                 $nameToCorrect = mysqli_fetch_assoc(mysqli_query($connect, "SELECT Username FROM users WHERE id_user = '$edit[$i]'"));
 
                                 $statusToCorrect = mysqli_fetch_assoc(mysqli_query($connect, "SELECT `Status` FROM users WHERE id_user = '$edit[$i]'"));
-                                echo "                                        
+                                echo "               
                                 <p class ='edit__title'>Edit Parametrs of User Row № ".$edit[$i]."</p>
                                   <input class ='edit__input' name = 'Name$i' placeholder= '$nameToCorrect[Username]' value = '$nameToCorrect[Username]' type='text'>
                                   
@@ -136,7 +137,6 @@ require "php_func/UsersOrders.php";
                         </div>";
                             }
                         ?>
-                    </div>
                     </form>
                 </div>
 
@@ -208,8 +208,8 @@ require "php_func/UsersOrders.php";
                             <?
                         //Edit block
                         if(isset($_POST['edit_mail'])){
-                            echo"<div class='edit'>
-                            <div class='edit__item'>
+                            echo"<div class='edits'>
+                            <div class='edits__item'>
                                 <form method='post'>";
                             $edit = $_POST['delete'];
                             $count  = count($edit);
@@ -219,7 +219,6 @@ require "php_func/UsersOrders.php";
                                 <p class ='edit__title'>Edit Mail Row № ".$edit[$i]."</p>
                                   <input class ='edit__input' placeholder= '$mailToCorrect[email]' type='text' name = 'Email".$i."'>
                                   <input  type='text' hidden name = '$i' value = '$edit[$i]'>   
-                                  <hr>
                                 ";           
                             }
                             echo"
