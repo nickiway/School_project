@@ -4,6 +4,7 @@ require "php_func/adminAddNews.php";
 require "php_func/Mail.php";
 require "php_func/Users.php";
 require "php_func/UsersOrders.php";
+require "php_func/AvailabelHotels.php";
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -34,14 +35,11 @@ require "php_func/UsersOrders.php";
             </div>
             <div onclick = "get_tabs('users')" class="main__pannel__item"><img src="../icons/profile.svg" alt="">Users Table</div>
             <div onclick = "get_tabs('Usersorder')" class="main__pannel__item"><img src="../icons/country.svg" alt="">Recent Orders</div>
+            <div onclick = "get_tabs('availableOrders')" class="main__pannel__item"><img src="../icons/news.png" alt="">Create and post last news</div>
             <hr>
             <div onclick = "get_tabs('create-news')" class="main__pannel__item"><img src="../icons/news.png" alt="">Create and post last news</div>
             <hr>
-            <div onclick = "window.location.href = 'index.php'" class="main__pannel__item"><img src="../icons/logout.svg" alt="">Logout the admins page</div>
-            <div onclick = "window.location.href = 'index.php'" class="main__pannel__item"><img src="../icons/logout.svg" alt="">Logout the admins page</div>
-            <div onclick = "window.location.href = 'index.php'" class="main__pannel__item"><img src="../icons/logout.svg" alt="">Logout the admins page</div>
-            <div onclick = "window.location.href = 'index.php'" class="main__pannel__item"><img src="../icons/logout.svg" alt="">Logout the admins page</div>
-            <div onclick = "window.location.href = 'index.php'" class="main__pannel__item"><img src="../icons/logout.svg" alt="">Logout the admins page</div>
+           
         </div>
         
         <div class="main-statistic">
@@ -180,7 +178,7 @@ require "php_func/UsersOrders.php";
                                     $date_reg = $mail['date_reg']; 
                             echo "
                                 <tr class = 'MailTd' id = '".$id.'Td'."'>
-                                    <td><input type = 'checkbox' class ='checkBox' name = 'delete[]' onclick = 'checkedRow($id)' id = '$id' value = '$id'></td>
+                                    <td><input type = 'checkbox' class ='checkBox' name = 'delete[]' onclick = 'checkedRow($id)' id = '".$id."Mail' value = '$id'></td>
                                     <td>$id</td>
                                     <td>$email</td>
                                     <td>$date_reg</td>
@@ -218,7 +216,7 @@ require "php_func/UsersOrders.php";
                                 echo "                                        
                                 <p class ='edit__title'>Edit Mail Row № ".$edit[$i]."</p>
                                   <input class ='edit__input' placeholder= '$mailToCorrect[email]' type='text' name = 'Email".$i."'>
-                                  <input  type='text' hidden name = '$i' value = '$edit[$i]'>   
+                                  <input  type='text' hidden name = '$i' value = '$edit[$i]'>       
                                 ";           
                             }
                             echo"
@@ -233,6 +231,107 @@ require "php_func/UsersOrders.php";
                 </div>  
                 </div>   
 <!-- End of Email Table -->
+
+<!-- Order's Table -->
+<div  class =  "tabscontent" id="availableOrders">
+                    <form class = "TableAdmin" method = 'post'>
+                        <table>
+                            <h2 align = center>Available hotels table</h2>
+                                <tr>
+                                    <th>Tick the order you need</th>
+                                    <th>The order's Id</th>
+                                    <th>The Hotel</th>
+                                    <th>Cost (in $)</th>
+                                    <th>Date Start</th>
+                                    <th>Date End</th>
+                                    <th>Type of the Hotel</th>
+                                    <th>Rooms</th>
+                                    <th>Breackfast included</th>
+                                </tr>
+                                    <?while($proposition = mysqli_fetch_assoc($getAvailableHotels)){
+                                    $id = $proposition['id'];
+                                    $hotel = $proposition['Hotel'];
+                                    $cost = $proposition['Cost'];
+                                    $dateStart = $proposition['DateStart'];
+                                    $dateEnd = $proposition['DateEnd'];
+                                    $HotelType = $proposition['Type'];
+                                    $rooms = $proposition['Rooms'];
+                                    if ($proposition['breakfastInclude'] == 1) {
+                                        $breakfastImage = 'yes.png';
+                                    }
+                                    else{
+                                        $breakfastImage ='no.png';
+                                    }
+                                    if ($proposition['breakfastInclude'] == 1) {
+                                        $breakfastImage = 'yes.png';
+                                    }
+                                    else{
+                                        $breakfastImage ='no.png';
+                                    }
+
+                            echo "
+                                <tr class = 'MailTd' id = '".$id.'Ava'."'>
+                                    <td><input type = 'checkbox' class ='checkBoxAvailable' name = 'Availabledelete[]'
+                                    id = '".$id."Available' onclick = 'checkedRowAvailable($id)'  value = '$id'></td>
+                                    <td>$id</td>
+                                    <td>$hotel  </td>
+                                    <td>$cost</td>
+                                    <td>$dateStart</td>
+                                    <td>$dateEnd</td>
+                                    <td>$HotelType</td>
+                                    <td>$rooms</td>
+                                    <td><img src='".ICONDIR."$breakfastImage' alt='Breakfast'></td>
+
+                                </tr>";
+                                }
+                            ?>
+                        </table>
+                    <div class="switch__block">
+                        <div class="">
+                        <p class = "switch__block-item">
+                            <?    echo "<span class ='table__switcher'><a  href = 'admins_page.php?avahotels=1'><<</a></span>";
+                            for ($i=1; $i <= $numRowsAva ; $i++) { 
+                            echo "<span class ='table__switcher'><a href = 'admins_page.php?mail_table=$i'>$i</a></span>";
+                            }
+                            echo "<span class ='table__switcher'><a href = 'admins_page.php?mail_table=$numRowsAva'>>></a></span>";
+                        ?>
+                        </p>
+                            <div class=" switch__block-item">
+                                <input type="submit" class = "Delete" name = 'delete_mail' value = "Delete">
+                                <input type="submit" class = "Edit" name = 'edit_mail' value = "Edit">            
+                                <button  type = "button" id = "Cancel" value ="Cancel">Cancel</button>
+                                <button  type = "button" id = "ChoseAll" value ="Cancel">Choose All</button>
+                            </div>
+                            
+                            <?
+                        //Edit block
+                        if(isset($_POST['edit_mail'])){
+                            echo"<div class='edits'>
+                            <div class='edits__item'>
+                                <form method='post'>";
+                            $edit = $_POST['delete'];
+                            $count  = count($edit);
+                            for ($i=0; $i < $count; $i++) { 
+                                $mailToCorrect = mysqli_fetch_assoc(mysqli_query($connect, "SELECT email FROM mailing WHERE id = '$edit[$i]'"));
+                                echo "                                        
+                                <p class ='edit__title'>Edit Mail Row № ".$edit[$i]."</p>
+                                  <input class ='edit__input' placeholder= '$mailToCorrect[email]' type='text' name = 'Email".$i."'>
+                                  <input  type='text' hidden name = '$i' value = '$edit[$i]'>       
+                                ";           
+                            }
+                            echo"
+                                <input type = 'submit' class = 'standartStyle' value = 'Commit changes' name = 'ChangeMail'>
+                            </form>
+                            </div>
+                        </div>";
+                            }
+                        ?>
+                        </div>
+                    </form>
+                </div>  
+                </div>   
+<!-- End of Order's Table -->
+
 <!-- User's order Table -->
                 <div  class =  "tabscontent" id="Usersorder">
                     <form class = "TableOrders" method = 'post'>
@@ -240,9 +339,11 @@ require "php_func/UsersOrders.php";
                             <h2 align = center>Recent orders of tours</h2>
                                 <tr>
                                     <th>Tick the order</th>
+                                    <th>Date</th>
+                                    <th>Ordered hotel</th>
                                     <th>The users Id</th>
-                                    <th>The users Email</th>                                <th>Recall Time</th>                                
-                                    <th>User's objection</th>
+                                    <th>The users Phone</th>                                <th>Recall Time</th>                                
+                                    <th>User's Email</th>
                                     <th>Was it exemined?</th>
                                 </tr>
                                     <?while($order = mysqli_fetch_assoc($getOrder)){
@@ -250,7 +351,9 @@ require "php_func/UsersOrders.php";
                                     $id = $order['id'];   
                                     $phone = $order['Phone']; 
                                     $recallTime = $order['Recall_time'];
-                                    $SomeObjections = $order['Objections']; 
+                                    $OrderedHotel = $order['Hotel'];
+                                    $DateSend = $order['Date'];
+                                    $UsersEmail = $order['UsersEmail']; 
                                     $examinedBool = $order['Examined'];
                                     $progressImage = "";
                                     if ($examinedBool == 0) {
@@ -263,18 +366,30 @@ require "php_func/UsersOrders.php";
                                         $progressImage = "no.png";   
                                     }
                             echo "
-                                <tr class = 'OrdersTd' id = '".$id.'Or'."'>
-                                    <td><input type = 'checkbox' class ='checkBoxOrder' name = 'Orderdelete[]' onclick = 'checkedRowOrder($id)' id = '$id' value = '$id'></td>
+                                <tr class = 'OrdersTd' id = '".$id.'TrOr'."'>
+                                    <td><input type = 'checkbox' class ='checkBoxOrder' name = 'Orderdelete[]' onclick = 'checkedRowOrder($id)' id = '".$id."Or' value = '$id'></td>
                                     <td>$id</td>
+                                    <td>$DateSend</td>
+                                    <td>$OrderedHotel</td>
                                     <td>$phone</td>
                                     <td>$recallTime</td>
-                                    <td>$SomeObjections</td>
+                                    <td>$UsersEmail</td>
                                     <td><img src='".ICONDIR.$progressImage."' alt='result'></td>
                                 </tr>";
                                 }
                             ?>
                         
                         </table>
+                        <p class = "switch__block-item">
+                            <?    echo "<span class ='table__switcher'><a  href = 'admins_page.php?orders=1'><<</a></span>";
+                            for ($i=1; $i <= $OrdersNumRows ; $i++) { 
+                            echo "<span class ='table__switcher'><a href = 'admins_page.php?orders=$i'>$i</a></span>";
+                            }
+                            echo "<span class ='table__switcher'><a href = 'admins_page.php?orders=$OrdersNumRows'>>></a></span>";
+                        ?>
+                        </p>
+                        <div class="switch__block">
+
                         <div class=" switch__block-item">
                                 <input type="submit" class = "Commit" name = 'CommitOrder' value = "" style = "background-image:url(icons/yes.png)">
 
@@ -286,6 +401,7 @@ require "php_func/UsersOrders.php";
 
                                 <button  type = "button" id = "ChoseAllOrders" value ="Cancel">Choose All</button>
                             </div>
+                        </div>
                     </form>
 
                 </div>   

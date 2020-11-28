@@ -1,18 +1,18 @@
 <?
 // Pages work
 $numOfRows = 15;
-$pageNumOrders  = $_GET['user_table'];
+$pageNumOrders  = $_GET['orders'];
 if($pageNumOrders == "" || $pageNumOrders == "1"){
     $pageNumOrders = 1;
 }
 else{
-    $pageNumOrders = $pageNumOrders * $numOfRowsOrders - ($numOfRowsOrders-1);
+    $pageNumOrders = $pageNumOrders * $numOfRows - ($numOfRows-1);
 }
 
 $OrdersAllRows = mysqli_query($connect, "SELECT * FROM usersorders ORDER BY id DESC");
 
 $OrdersNumRows =ceil(mysqli_num_rows($OrdersAllRows)/$numOfRows); 
-$getOrder = mysqli_query($connect, "SELECT * FROM usersorders ORDER BY id DESC"); 
+$getOrder = mysqli_query($connect, "SELECT * FROM usersorders ORDER BY id DESC LIMIT $pageNumOrders, $numOfRows "); 
 if (isset($_POST['CommitOrder'])) {
     $rowsToUpdate = $_POST['Orderdelete'];
     $count = count($rowsToUpdate);   

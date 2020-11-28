@@ -85,13 +85,17 @@ require "php_func/currency.php";
                 #Hotel parametrs: 
                 switch ($row['breakfastInclude']) {
                     case '1':
-                        $breakfastInclude = "Included";
+                        $breakfastInclude = "yes";
+                        $breakfastIncludeCard = "Incluted";
                         break;
                     
                     default:
-                         $breakfastInclude = "Not included";
+                         $breakfastInclude = "no";
+                         $breakfastIncludeCard = "Not Incluted";
                         break;
                 }
+                
+                $NumOfBeds = $row['Beds'];
                 $galleryImages = explode(" ", $row['GalleryImage']);
                 $imageSource = $row['imageSource'];//Image Backgrpund
                 $country = $row['Country'];//Country
@@ -103,7 +107,34 @@ require "php_func/currency.php";
                 $starsNum = $row['Stars'];
                 $region = $row['Region'];//Region
                 $dateDiff =ceil(abs(strtotime($dateStart) - strtotime($dateEnd)) / 86400);
-                $cost = round((intval($row['Cost']) * $currency_value_US / $currency_value)/$dateDiff, 2);//Cost
+                $cost = round((intval($row['Cost']) * $currency_value_US / $currency_value)/$dateDiff, 2);//Cost  
+                $NumberType = $row['Type'];//Type numbert
+                $NumberOfRooms = $row['Rooms'];
+                if ($row['Condicioner'] == 1) {
+                    $Condicioner = "yes";
+                }
+                else{
+                    $Condicioner = "no";                    
+                }
+                if ($row['Pet friendly'] == 1) {
+                    $Petfriend = "yes";
+                }
+                else{
+                    $Petfriend = "no";                    
+                }
+                if ($row['For smoking'] == 1) {
+                    $Smoking = "yes";
+                }
+                else{
+                    $Smoking = "no";                    
+                }
+                if ($row['Spa Salon'] == 1) {
+                    $Spa = "yes";
+                }
+                else{
+                    $Spa = "no";                    
+                }
+                $TotalS = $row['Total S'];
                 #Echo the cards:
                 echo "
 <div class='order__send-form' id = '".$row['id']."'>
@@ -111,9 +142,27 @@ require "php_func/currency.php";
         <div class='order__call-form'>
         <h2 class = 'offers-cards__hotel-name'>\"".$hotelName."\"</h2>
         <h3>".$country."( ".$region."  )<img src='".FLAGDIR."/$flag.png' alt='flag'></h3>
-        <p class = 'order__send-moreinfo'> <img src='".ICONDIR."/breakfast.png' alt='breakfast'>Breakfast in the hotel is <span class = 'underlineText'>".$breakfastInclude."</span> </p>
-        <p class = 'order__send-moreinfo'> <img src='".ICONDIR."/money.png' alt='money'> Cost for a night: ".$cost." ".$cost_name."</p>
+        
+        <p class = 'order__send-moreinfo'> <img src='".ICONDIR."/money.png' alt='money'> Total cost: ".round($cost * $dateDiff)." ".$cost_name." (Cost for a night: ".$cost." ".$cost_name.")</p>
+
+
+        <p class = 'order__send-moreinfo'> <img src='".ICONDIR."/room.png' alt='room'> Number type : $NumberType ($NumberOfRooms rooms, $TotalS m²)</p>
+
+        <p class = 'order__send-moreinfo'> <img src='".ICONDIR."/breakfast.png' alt='breakfast'>Breakfast is incluted<span class = 'underlineText'><img src='".ICONDIR.$breakfastInclude.".png' alt='icon'></span> </p>
+
+        <p class = 'order__send-moreinfo'> <img src='".ICONDIR."/air-conditioner.png' alt='conditioner'> Condicioner: <img src='".ICONDIR.$Condicioner.".png' alt='icon'></p>
+
+        <p class = 'order__send-moreinfo'> <img src='".ICONDIR."/dog.png' alt='dog'> Pet friendly: <img src='".ICONDIR.$Petfriend.".png' alt='icon'></p>
+
+        <p class = 'order__send-moreinfo'> <img src='".ICONDIR."/smoking-area.png' alt='smoking'> Smoking area: <img src='".ICONDIR.$Smoking.".png' alt='icon'> </p>
+
+        <p class = 'order__send-moreinfo'> <img src='".ICONDIR."/onsen.png' alt='onsen'> Spa salon: <img src='".ICONDIR.$Spa.".png' alt='icon'></p>
+
+        <p class = 'order__send-moreinfo'> <img src='".ICONDIR."/beds.png' alt='beds'> Beds: $NumOfBeds</p>
+
+        
         <p class = 'order__send-moreinfo'> <img src='".ICONDIR."/city.png' alt='city'> Hotel's city: ".$city."</p>
+
         <p class = 'order__send-moreinfo'> <img src='".ICONDIR."/moon.png' alt='moon'> Night number: ".$dateDiff." ( From ".$dateStart." and To ".$dateEnd." )</p>
         
         <p class = 'order__send-moreinfo '><img src='".ICONDIR."/mark.png' alt='mark'> Star Rate:";
@@ -146,11 +195,9 @@ require "php_func/currency.php";
             <div class ='order__inputBlokc'>
                 <p>When you convinient we recall you?</p>
                 <input name = 'recallTime'  required type='datetime-local'>
-            </div>
+                <input name = 'Hotel'  value = '$hotelName' type='hidden'>
 
-            <div class ='order__inputBlokc'>
-                <p>For you objections</p>
-                <textarea name='objections' id='' cols='30' rows='3'></textarea>
+               
             </div>
             
             <div class ='order__inputBlokc'><input name = 'SubmitOrder' class = 'standartStyle'type='submit'></div>
@@ -202,7 +249,7 @@ require "php_func/currency.php";
         <p class =  'offers-cards__sign'>Costs for a night: <span class ='contrastSign'>".round($cost)." ".$cost_name."</span></p>
 
         <p class =  'offers-cards__sign'>Located in: <span class ='contrastSign'>".$city."</span></p>
-        <p class =  'offers-cards__sign'>Breakfast is<span class ='contrastSign'> ".$breakfastInclude."</span></p>
+        <p class =  'offers-cards__sign'>Breakfast is<span class ='contrastSign'> ".$breakfastIncludeCard."</span></p>
 
         <p class =  'offers-cards__sign'><button onclick = sendTour(".$row['id'].") class= 'standartStyle'>Order the hotel</button></p>
     </div>   

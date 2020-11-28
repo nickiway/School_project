@@ -10,6 +10,9 @@ input[type = checkbox]{
   height:24px;
   width:24px;
 }
+table img{
+  width: 32px;
+}
 table{
   table-layout: fixed;
 }
@@ -35,7 +38,7 @@ table,td,th{
     width:100%;
 }
 .tabscontent table{
-  margin:auto auto;
+  width: 100%;
 }
 /* Admin Table */
 .TableAdmin{

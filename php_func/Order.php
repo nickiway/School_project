@@ -25,10 +25,10 @@
         if($CountryTo == 'Anywhere')
         {
             if($hotelComingTo == 'Anywhere'){
-            $orders = mysqli_query($connect, "SELECT * FROM countries INNER JOIN hotels ON countries.Country = hotels.HotelCountry INNER JOIN propositons ON hotels.HotelName = propositons.Hotel WHERE propositons.DateStart > '$todayDate' AND propositons.DateStart > '$dateFrom'  AND propositons.DateEnd < '$dateTo' ORDER BY propositons.DateStart ASC LIMIT 40");
+            $orders = mysqli_query($connect, "SELECT * FROM countries INNER JOIN hotels ON countries.Country = hotels.HotelCountry INNER JOIN propositons ON hotels.HotelName = propositons.Hotel WHERE propositons.DateStart > '$todayDate' AND propositons.DateStart > '$dateFrom'  AND propositons.DateEnd < '$dateTo' AND propositons.Available = '1' ORDER BY propositons.DateStart ASC LIMIT 40");
             }
             else{
-                $orders = mysqli_query($connect, "SELECT * FROM countries INNER JOIN hotels ON countries.Country = hotels.HotelCountry INNER JOIN propositons ON hotels.HotelName = propositons.Hotel WHERE propositons.Hotel = '$hotelComingTo' AND propositons.DateStart > '$todayDate' AND propositons.DateStart > '$dateFrom'  AND propositons.DateEnd < '$dateTo' ORDER BY propositons.DateStart ASC LIMIT 40");
+                $orders = mysqli_query($connect, "SELECT * FROM countries INNER JOIN hotels ON countries.Country = hotels.HotelCountry INNER JOIN propositons ON hotels.HotelName = propositons.Hotel WHERE propositons.Hotel = '$hotelComingTo' AND propositons.DateStart > '$todayDate' AND propositons.DateStart > '$dateFrom'  AND propositons.DateEnd < '$dateTo' AND propositons.Available = '1' ORDER BY propositons.DateStart ASC LIMIT 40");
             }
         }
 
@@ -36,22 +36,23 @@
         {
             #If country only field but hotel not
             if($hotelComingTo == 'Anywhere'){
-                $orders = mysqli_query($connect, "SELECT * FROM countries INNER JOIN hotels ON countries.Country = hotels.HotelCountry INNER JOIN propositons ON hotels.HotelName = propositons.Hotel WHERE hotels.HotelCountry = '$CountryTo' AND propositons.DateStart > '$todayDate' AND propositons.DateStart > '$dateFrom'  AND propositons.DateEnd < '$dateTo' ORDER BY propositons.DateStart ASC LIMIT 40" );
+                $orders = mysqli_query($connect, "SELECT * FROM countries INNER JOIN hotels ON countries.Country = hotels.HotelCountry INNER JOIN propositons ON hotels.HotelName = propositons.Hotel WHERE hotels.HotelCountry = '$CountryTo' AND propositons.DateStart > '$todayDate' AND propositons.DateStart > '$dateFrom'  AND propositons.DateEnd < '$dateTo' AND propositons.Available = '1'  ORDER BY propositons.DateStart ASC LIMIT 40" );
                 }
             #If both of them are field
             else{
-                $orders = mysqli_query($connect, "SELECT * FROM countries INNER JOIN hotels ON countries.Country = hotels.HotelCountry INNER JOIN propositons ON hotels.HotelName = propositons.Hotel WHERE hotels.HotelCountry = '$CountryTo' AND propositons.Hotel = '$hotelComingTo' AND propositons.DateStart > '$todayDate' AND propositons.DateStart > '$dateFrom'  AND propositons.DateEnd < '$dateTo' ORDER BY propositons.DateStart ASC LIMIT 40");
+                $orders = mysqli_query($connect, "SELECT * FROM countries INNER JOIN hotels ON countries.Country = hotels.HotelCountry INNER JOIN propositons ON hotels.HotelName = propositons.Hotel WHERE hotels.HotelCountry = '$CountryTo' AND propositons.Hotel = '$hotelComingTo' AND propositons.DateStart > '$todayDate' AND propositons.DateStart > '$dateFrom'  AND propositons.DateEnd < '$dateTo' AND propositons.Available = '1' ORDER BY propositons.DateStart ASC LIMIT 40");
             }
         }
    }    
    if (isset($_POST['SubmitOrder'])) {
-        $objection = $_POST['objections'];
+        $objection = $_POST['Hotel'];
+        $dateSend = date("Y-m-d");
         $usersEmail = $_SESSION['logged_user']['Email'];
         $recallTime = $_POST['recallTime'];
         $fullName = $_POST['fullname'];
         $phone = $_POST['phone'];
-        mysqli_query($connect, "INSERT INTO usersorders (Fullname, UsersEmail, Phone, Recall_time, Objections, Examined) VALUES ('$fullName', '$usersEmail' ,
-        '$phone', '$recallTime', '$objection',0)");
+        mysqli_query($connect, "INSERT INTO usersorders (Fullname, UsersEmail, Phone, Recall_time, Hotel, Examined, `Date`) VALUES ('$fullName', '$usersEmail' ,
+        '$phone', '$recallTime', '$objection',0,'$dateSend')");
    }
 ?>
 

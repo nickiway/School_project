@@ -42,8 +42,7 @@ require "php_func/country_info.php";
             <ul class = "menu__row" >
                 <li class="menu__item" onclick = "window.location.href='about.php'">About us</li>
                 <li class="menu__item"onclick = "window.location.href='order_tour.php'">Order the tour</li>
-                <li class="menu__item"onclick = "window.location.href='about.php'">Forum</li>
-                <li class="menu__item"onclick = "window.location.href='voting.php'">Vote Page</li>
+                <li class="menu__item"onclick = "window.location.href='WeaterInformation.php'">About Weather</li>
                 <?if(isset($_SESSION['logged_user']) && $_SESSION['logged_user']['Status'] == 'Admin'):?>  
                     <li class="menu__item"onclick = "window.location.href='admins_page.php'">Admins Page</li>
                 <?endif;?>

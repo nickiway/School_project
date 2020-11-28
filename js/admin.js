@@ -12,7 +12,7 @@ function get_tabs(tabname){
 //checkboxRow
 function checkedRow(id)
 {
-    var CheckboxId = document.getElementById(id);
+    var CheckboxId = document.getElementById(id+"Mail");
     var isChecked = $("input[type=checkbox]").is(":checked");
     var CancellBtb = document.getElementById('Cancel');
     if(CheckboxId.checked){
@@ -121,21 +121,21 @@ CancellBtbUser.onclick = function () {
 // TABLE ORDERS 
 function checkedRowOrder(id)
 {
-    var CheckboxId = document.getElementById(id);
+    var CheckboxId = document.getElementById(id+"Or");
     var isChecked = $("input[type=checkbox]").is(":checked");
     var CancellBtb = document.getElementById('CancelOrders');
     var Commit = document.querySelector('.Commit');
     var Undefined =  document.querySelector('.Undefined');
     var Reject = document.querySelector('.Reject');
     if(CheckboxId.checked){
-        var RowId = document.getElementById(id+'Or');
+        var RowId = document.getElementById(id+'TrOr');
         RowId.style.background ="#1273EB";
         RowId.style.color ="white";
         RowId.style.textShadow ="0px 0px 3px #000";
         RowId.style.transition = ".5s";
     }
     else if(!CheckboxId.checked){
-        var RowId = document.getElementById(id+'Or');
+        var RowId = document.getElementById(id+'TrOr');
         RowId.style.background ="white";   
         RowId.style.color ="black";   
         RowId.style.textShadow ="none";

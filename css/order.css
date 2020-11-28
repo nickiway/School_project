@@ -202,6 +202,7 @@ margin: 10px 10%;
 }
 .order__send-body h3 img, .order__send-moreinfo img{
     margin: 0px 10px;
+    max-width:32px;
 }
 .order__send-moreinfo{
     font-size: 20px;
