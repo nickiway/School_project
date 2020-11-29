@@ -193,6 +193,12 @@ CancellBtbOrders.onclick = function () {
 }  
 
 // Adapted Menu
+var AdadtedMenuBtn2 = document.getElementById('toogleMenuAdmin2');
+AdadtedMenuBtn2.onclick = function(){
+    var MenuPannel  =document.querySelector('.main__pannel');
+    MenuPannel.classList.toggle('active');
+}
+
 var AdadtedMenuBtn = document.getElementById('toogleMenuAdmin');
 AdadtedMenuBtn.onclick = function(){
     var MenuPannel  =document.querySelector('.main__pannel');

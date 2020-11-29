@@ -142,3 +142,19 @@
     justify-content: center;
     align-items: center;
 }
+#mailing input, textarea {
+    margin:20px 0;
+    box-shadow: 0px 0px 2px #000 inset;
+}
+#create-news{
+    overflow: auto;
+}
+#toogleMenuAdmin,#toogleMenuAdmin2{
+    word-wrap: unset;
+    border-radius: 10px;
+    margin:0px 10px;
+}
+#toogleMenuAdmin2{
+    display: none;
+    margin:20px;
+}

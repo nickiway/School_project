@@ -36,18 +36,24 @@ require "php_func/mailingsender.php";
             </div>
             <div onclick = "get_tabs('users')" class="main__pannel__item"><img src="../icons/profile.svg" alt="">Users Table</div>
             <div onclick = "get_tabs('Usersorder')" class="main__pannel__item"><img src="../icons/country.svg" alt="">Recent Orders</div>
-            <div onclick = "get_tabs('availableOrders')" class="main__pannel__item"><img src="../icons/news.png" alt="">Create and post last news</div>
+            <div onclick = "get_tabs('availableOrders')" class="main__pannel__item"><img src="../icons/news.png" alt="">Hotels Table</div>
             <hr>
             <div onclick = "get_tabs('create-news')" class="main__pannel__item"><img src="../icons/news.png" alt="">Create and post last news</div>
             <div onclick = "get_tabs('mailing')" class="main__pannel__item"><img src="../icons/news.png" alt="">Mail to everyone</div>
             <hr>
-           
+            <button id = 'toogleMenuAdmin2' class = "standartStyle">Get Menu</button>
         </div>
         
         <div class="main-statistic">
             <div class="main__header">
                 <div class = 'admin__basic-info'>
-                    <button id = 'toogleMenuAdmin'>What</button>
+                <ul class = "menu__ul">
+                    <li class="menu__item darked-text" onclick = "window.location.href='about.php'">About us</li>
+                    <li class="menu__item darked-text"onclick = "window.location.href='order_tour.php'">Order the tour</li>
+                    <li class="menu__item darked-text"onclick = "window.location.href='WeaterInformation.php'">About Weather</li>
+                    <li class="menu__item darked-text"onclick = "window.location.href='index.php'">Main Page</li>
+                    <button id = 'toogleMenuAdmin' class = "standartStyle">Get Menu</button>
+                </ul>
                     <img src="<?= "../avatars/".$_SESSION['logged_user']['avatar']?>" alt="avatr">
                     <span><?= $_SESSION['logged_user']['Username']?></span>
                 </div>
@@ -59,11 +65,11 @@ require "php_func/mailingsender.php";
             <div class =  "tabscontent" id="mailing">
             <div class="add-news">
                 <form method = post >
-                    <p>Title</p>
+                    <p class = "add-news__title">Title</p>
                     <input require name = 'title' type="text">
-                    <p>Massege</p>
-                    <input require name = 'massege' type="text">
-                    <input type="submit" name= "mailingButton" value="Send">
+                    <p class = "add-news__title">Massege</p>
+                    <textarea require name="mailingButton" id="mailingButton" cols="30" rows="10"></textarea>
+                    <input type="submit" name= "" value="Send">
                 </form>
             </div>  
         </div>
@@ -78,9 +84,9 @@ require "php_func/mailingsender.php";
                                     <th>Tick the user</th>
                                     <th>The user's Id</th>
                                     <th>The user's Name</th>
-                                    <th>The user's Password</th>
-                                    <th>The user's Email</th>
-                                    <th>The user's Status</th>
+                                    <th  class = 'AvailableHotelMedia'>The user's Password</th>
+                                    <th class = 'AvailableHotelMedia'>The user's Email</th>
+                                    <th class = 'AvailableHotelMedia'>The user's Status</th>
                                 </tr>
                                 <?
                                 while($user = mysqli_fetch_assoc($getUser)){
@@ -97,9 +103,9 @@ require "php_func/mailingsender.php";
                                         </td>
                                         <td>$UserId</td>
                                         <td>$UserName</td>
-                                        <td>$UserPassword</td>
-                                        <td>$UserEmail</td>
-                                        <td>$UserStatus</td>
+                                        <td class = 'AvailableHotelMedia'>$UserPassword</td>
+                                        <td class = 'AvailableHotelMedia'>$UserEmail</td>
+                                        <td class = 'AvailableHotelMedia'>$UserStatus</td>
                                     </tr>";
                                     }
                                 ?>
@@ -686,12 +692,12 @@ require "php_func/mailingsender.php";
                             <h2 align = center>Recent orders of tours</h2>
                                 <tr>
                                     <th>Tick the order</th>
-                                    <th>Date</th>
+                                    <th class = 'AvailableHotelMedia'>Date</th>
                                     <th>Ordered hotel</th>
-                                    <th>The users Id</th>
+                                    <th class = 'AvailableHotelMedia'>The users Id</th>
                                     <th>The users Phone</th>                                <th>Recall Time</th>                                
-                                    <th>User's Email</th>
-                                    <th>Was it exemined?</th>
+                                    <th class = 'AvailableHotelMedia'>User's Email</th>
+                                    <th class = 'AvailableHotelMedia'>Was it exemined?</th>
                                 </tr>
                                     <?while($order = mysqli_fetch_assoc($getOrder)){
                                     $email = $order['UsersEmail'];    
@@ -715,13 +721,13 @@ require "php_func/mailingsender.php";
                             echo "
                                 <tr class = 'OrdersTd' id = '".$id.'TrOr'."'>
                                     <td><input type = 'checkbox' class ='checkBoxOrder' name = 'Orderdelete[]' onclick = 'checkedRowOrder($id)' id = '".$id."Or' value = '$id'></td>
-                                    <td>$id</td>
-                                    <td>$DateSend</td>
+                                    <td class = 'AvailableHotelMedia'>$DateSend</td>
                                     <td>$OrderedHotel</td>
+                                    <td class = 'AvailableHotelMedia'>$id</td>
                                     <td>$phone</td>
                                     <td>$recallTime</td>
-                                    <td>$UsersEmail</td>
-                                    <td><img src='".ICONDIR.$progressImage."' alt='result'></td>
+                                    <td class = 'AvailableHotelMedia'>$UsersEmail</td>
+                                    <td class = 'AvailableHotelMedia'><img src='".ICONDIR.$progressImage."' alt='result'></td>
                                 </tr>";
                                 }
                             ?>

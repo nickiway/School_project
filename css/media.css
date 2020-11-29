@@ -22,8 +22,15 @@
         left:-300px;
         z-index: 1000;
     }
-    #toogleMenuAdmin{
+    #toogleMenuAdmin,#toogleMenuAdmin2{
         display: block;
+    }
+    .switch__block-item{
+        display: block;
+    }
+    .switch__block-item input, button[type=button] {
+        margin:10px; 
+        width: 100%;
     }
 }
 @media screen and (max-width:400px){
