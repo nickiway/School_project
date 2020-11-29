@@ -10,7 +10,7 @@ else{
 }
 
 $OrdersAllRows = mysqli_query($connect, "SELECT * FROM usersorders ORDER BY id DESC");
-
+    
 $OrdersNumRows =ceil(mysqli_num_rows($OrdersAllRows)/$numOfRows); 
 $getOrder = mysqli_query($connect, "SELECT * FROM usersorders ORDER BY id DESC LIMIT $pageNumOrders, $numOfRows "); 
 if (isset($_POST['CommitOrder'])) {

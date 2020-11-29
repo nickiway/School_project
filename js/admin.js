@@ -198,3 +198,46 @@ AdadtedMenuBtn.onclick = function(){
     var MenuPannel  =document.querySelector('.main__pannel');
     MenuPannel.classList.toggle('active');
 }
+
+//checkboxRow
+function checkedRowAvailable(id)
+{
+    var CheckboxId = document.getElementById(id+"Available");
+    var isChecked = $("input[type=checkbox]").is(":checked");
+    var CancellBtb = document.getElementById('CancelAllAvailable');
+    if(CheckboxId.checked){
+        var RowId = document.getElementById(id+'Ava');
+        RowId.classList.toggle('activeCheck');
+    }
+    else if(!CheckboxId.checked){
+        var RowId = document.getElementById(id+'Ava');
+        RowId.classList.toggle('activeCheck');
+    }
+    if(isChecked != 0){
+        CancellBtb.style.display ="block";
+    } if(isChecked == 0){
+        CancellBtb.style.display ="none";   
+    }    
+// Cancell all
+   
+}
+var CancellBtbAvailable = document.getElementById('CancelAllAvailable');
+var BtnAllAvailable = document.getElementById('ChoseAllAvailable');
+BtnAllAvailable.onclick = function(){
+    var checkBoxes = document.querySelectorAll('.checkBoxAvailable');
+    var RowId = document.querySelectorAll('.AvailableTd'); 
+        for (var i = 0; i < checkBoxes.length; i++) { 
+            checkBoxes[i].checked = true; 
+            RowId[i].classList.toggle('activeCheck');
+        }  
+        CancellBtbAvailable .style.display = "block";
+}
+CancellBtbAvailable.onclick = function () {
+    var checkBoxes  = document.querySelectorAll('.checkBoxAvailable'); 
+    var RowId = document.querySelectorAll('.AvailableTd'); 
+        for (var i = 0; i < checkBoxes.length; i++) { 
+            checkBoxes[i].checked = false; 
+            RowId[i].classList.toggle('activeCheck');
+        } 
+    CancellBtbAvailable.style.display = "none";
+}

@@ -252,7 +252,7 @@ select.edit__input{
   width:100%;
   margin:20px 0px;
 }
-#Cancel, #CancelOrders{
+#Cancel, #CancelOrders, #CancelAllAvailable{
   font-weight: bold;
   font-size: 18px;
   margin:0px 20px;
@@ -266,7 +266,7 @@ select.edit__input{
   width:200px;
   display: none;
 }
-#ChoseAll,  #ChoseAllOrders{
+#ChoseAll,  #ChoseAllOrders, #ChoseAllAvailable{
   font-weight: bold;
   font-size: 18px;
   margin:0px 20px;
@@ -391,4 +391,62 @@ right:10px;
 .file__button:hover{
   border-color:#404040;
   transition: .3s;
+}
+.CreateNewOrder{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.CreateNewOrder__body{
+  padding:30px;
+  background-color: #1273eb;
+  border-radius: 20px;
+}
+.Create__item{
+  width: 300px;
+  display: flex;
+  margin:10px;
+  align-items: center;
+}
+.Create__row{
+  margin:auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.Create__row label{
+  margin:0px 10px;
+}
+.CreateNewOrder p {
+  text-shadow: 0px 0px 3px #000;
+  color:#fff;
+  font-weight: bold;
+  text-align: center  ;
+}
+.Create__item input, select{
+  width:100%;
+  margin:10px 0px ;
+  border-radius: 10px;
+  padding:10px; 
+}
+.Create__item input[type=radio]{
+  height: 30px;
+  width:30px;
+  cursor: pointer;
+}
+.activeCheck{
+  background-color: #1273EB !important;
+  color:#fff;
+  text-shadow: 0px 0px 3px #000;
+  transition: .5s;
+}
+.greened{
+  background-color: #33cc33;
+  color:#fff;
+  text-shadow: 0px 0px 3px #000;
+}
+.reded{
+  background-color: #cc0000;
+  color:#fff;
+  text-shadow: 0px 0px 3px #000;
 }

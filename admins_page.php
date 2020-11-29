@@ -242,11 +242,17 @@ require "php_func/AvailabelHotels.php";
                                     <th>The order's Id</th>
                                     <th>The Hotel</th>
                                     <th>Cost (in $)</th>
-                                    <th>Date Start</th>
-                                    <th>Date End</th>
-                                    <th>Type of the Hotel</th>
-                                    <th>Rooms</th>
-                                    <th>Breackfast included</th>
+                                    <th class = 'AvailableHotelMedia'>Date Start</th>
+                                    <th class = 'AvailableHotelMedia'>Date End</th>
+                                    <th class = 'AvailableHotelMedia'>Type of the Hotel</th>
+                                    <th class = 'AvailableHotelMedia'>Rooms</th>
+                                    <th class = 'AvailableHotelMedia'>Hotel Square (м²)</th>
+                                    <th class = 'AvailableHotelMedia'>Beds</th>
+                                    <th class = 'AvailableHotelMedia'>Smoking Allowed</th>
+                                    <th class = 'AvailableHotelMedia'>Spa Salon</th>
+                                    <th class = 'AvailableHotelMedia'>Condicioner</th>
+                                    <th class = 'AvailableHotelMedia'>Pet friendly</th>
+                                    <th class = 'AvailableHotelMedia'>Breackfast included</th>
                                 </tr>
                                     <?while($proposition = mysqli_fetch_assoc($getAvailableHotels)){
                                     $id = $proposition['id'];
@@ -256,32 +262,69 @@ require "php_func/AvailabelHotels.php";
                                     $dateEnd = $proposition['DateEnd'];
                                     $HotelType = $proposition['Type'];
                                     $rooms = $proposition['Rooms'];
+                                    $Pet = $proposition['Pet friendly'];
+                                    $Square = $proposition['Total S'];
+                                    $beds = $proposition['Beds'];
+                                    $Available = $proposition['Available'];
+                                    //  Breakfast
                                     if ($proposition['breakfastInclude'] == 1) {
                                         $breakfastImage = 'yes.png';
                                     }
                                     else{
                                         $breakfastImage ='no.png';
                                     }
-                                    if ($proposition['breakfastInclude'] == 1) {
-                                        $breakfastImage = 'yes.png';
+                                    // Smoking
+                                    if ($proposition['For smoking'] == 1) {
+                                        $Smoking = 'yes.png';
                                     }
                                     else{
-                                        $breakfastImage ='no.png';
+                                        $Smoking ='no.png';
                                     }
-
+                                    // Pet friendly 
+                                    if ($proposition['Pet friendly'] == 1) {
+                                        $Pet = 'yes.png';
+                                    }
+                                    else{
+                                        $Pet ='no.png';
+                                    }
+                                    //Smoking
+                                    if ($proposition['Spa Salon'] == 1) {
+                                        $Spa = 'yes.png';
+                                    }
+                                    else{
+                                        $Spa  ='no.png';
+                                    }
+                                    //Condicioner
+                                    if ($proposition['Condicioner'] == 1) {
+                                        $Condidcioner = 'yes.png';
+                                    }
+                                    else{
+                                        $Condidcioner ='no.png';
+                                    }
+                                    if ($Available == 0 || $dateStart <= date("Y-m-d")) {
+                                        $classAvailable = "reded";
+                                    }
+                                    else{
+                                        $classAvailable = "greened";
+                                    }
                             echo "
-                                <tr class = 'MailTd' id = '".$id.'Ava'."'>
+                                <tr class = '$classAvailable AvailableTd' id = '".$id.'Ava'."'>
                                     <td><input type = 'checkbox' class ='checkBoxAvailable' name = 'Availabledelete[]'
                                     id = '".$id."Available' onclick = 'checkedRowAvailable($id)'  value = '$id'></td>
                                     <td>$id</td>
                                     <td>$hotel  </td>
                                     <td>$cost</td>
-                                    <td>$dateStart</td>
-                                    <td>$dateEnd</td>
-                                    <td>$HotelType</td>
-                                    <td>$rooms</td>
-                                    <td><img src='".ICONDIR."$breakfastImage' alt='Breakfast'></td>
-
+                                    <td class = 'AvailableHotelMedia'>$dateStart</td>
+                                    <td class = 'AvailableHotelMedia'>$dateEnd</td>
+                                    <td class = 'AvailableHotelMedia'>$HotelType</td>
+                                    <td class = 'AvailableHotelMedia'>$rooms</td>
+                                    <td class = 'AvailableHotelMedia'>$Square</td>
+                                    <td class = 'AvailableHotelMedia'>$beds</td>
+                                    <td class = 'AvailableHotelMedia'><img src='".ICONDIR."$Smoking' alt='Pet'></td>
+                                    <td class = 'AvailableHotelMedia'><img src='".ICONDIR."$Spa' alt='Pet'></td>
+                                    <td class = 'AvailableHotelMedia'><img src='".ICONDIR."$Condidcioner' alt='Pet'></td>
+                                    <td class = 'AvailableHotelMedia'><img src='".ICONDIR."$Pet' alt='Pet'></td>
+                                    <td class = 'AvailableHotelMedia'><img src='".ICONDIR."$breakfastImage' alt='Breakfast'></td>
                                 </tr>";
                                 }
                             ?>
@@ -297,27 +340,170 @@ require "php_func/AvailabelHotels.php";
                         ?>
                         </p>
                             <div class=" switch__block-item">
-                                <input type="submit" class = "Delete" name = 'delete_mail' value = "Delete">
-                                <input type="submit" class = "Edit" name = 'edit_mail' value = "Edit">            
-                                <button  type = "button" id = "Cancel" value ="Cancel">Cancel</button>
-                                <button  type = "button" id = "ChoseAll" value ="Cancel">Choose All</button>
+                                <input type="submit" class = "CreateAvailable" name = 'CreateAvailable' value = "Create New Order">
+                                <input type="submit" class = "EditAvailable" name = 'EditAvailable' value = "Edit">            
+                                <button  type = "button" id = "CancelAllAvailable" value ="Cancel">Cancel</button>
+                                <button  type = "button" id = "ChoseAllAvailable" value ="Cancel">Choose All</button>
                             </div>
                             
                             <?
+                        // Create 
+                            if (isset($_POST['CreateAvailable'])) {        
+                            echo"
+                            <div class='CreateNewOrder'>
+                                <div class='CreateNewOrder__body'>
+                                    <form method = 'post'>
+                                
+                                        <p>Hotel Name</p>
+                                        <p class = 'Create__item'>
+                                            <select name='Hotel'>
+                                            ";
+                                            while ($row = mysqli_fetch_assoc($getAllHotels)) 
+                                                {
+                                                echo"<option value='".$row['HotelName']."'>".$row['HotelName']."</option>";
+                                                }
+                                echo"   </select>
+                                        </p>
+                                        
+                                        <p>Date Start</p>
+                                        <p class = 'Create__item'>
+                                            <input type='date' name = 'dateStart'min = '$datemin'>
+                                        </p>
+
+                                        <p>Date End</p>     
+                                        <p class = 'Create__item'>
+                                            <input type='date' name = 'dateEnd' min = '$datemin'>
+                                        </p>
+
+                                        <p>Full cost</p>
+                                        <p class = 'Create__item'>
+                                            <input type='number' name = 'cost'>
+                                        </p>
+
+
+                                        <p>Number Type</p>
+                                        <div class = 'Create__item'>
+                                                <select name='Type'>
+                                                    <option value='Standart'>Standart</option>
+                                                    <option value='Lux'>Lux</option>
+                                                    <option value='VIP'>VIP</option>
+                                                </select>
+                                        </div>
+                                        
+                                        <p>Number of Rooms</p>
+                                        <p class = 'Create__item'>
+                                            <input type='number' name = 'rooms'>
+                                        </p>
+
+                                        <p>Number of Beds</p>
+                                        <p class = 'Create__item'>
+                                            <input type='number' name = 'beds'>
+                                        </p>
+
+                                        <p>Breackfast included</p>
+                                        <div class = 'Create__item'>
+                                        
+                                            <p class = 'Create__row'>
+                                                <label for='breakfast1'>Yes</label>
+                                                <input type='radio' id = 'breakfast1' value = '1' name = 'breakfast'>
+                                            </p>
+                                            <p class = 'Create__row'>
+                                                <label for='breakfast0'>No</label>
+                                                <input type='radio'id = 'breakfast0' value = '0' name = 'breakfast'>
+                                            </p>
+                                        </div>
+
+
+                                        <p>Pet friendly</p>
+                                        <div class = 'Create__item'>
+                                        
+                                            <p class = 'Create__row'>
+                                                <label for='pet1'>Yes</label>
+                                                <input type='radio' id = 'pet1' value = '1' name = 'pet'>
+                                            </p>
+                                            <p class = 'Create__row'>
+                                                <label for='pet0'>No</label>
+                                                <input type='radio'id = 'pet0' value = '0' name = 'pet'>
+                                            </p>
+                                        </div>
+
+
+                                        <p>Smoking allowed</p>
+                                        <div class = 'Create__item'>
+                                        
+                                            <p class = 'Create__row'>
+                                                <label for='smoking1'>Yes</label>
+                                                <input type='radio' id = 'smoking1' value = '1' name = 'smoke'>
+                                            </p>
+                                            <p class = 'Create__row'>
+                                                <label for='smoking0'>No</label>
+                                                <input type='radio'id = 'smoking0' value = '0' name = 'smoke'>
+                                            </p>
+                                        </div>
+
+                                        <p>Spa Salon</p>
+                                        <div class = 'Create__item'>
+                                            <p class = 'Create__row'>
+                                                <label for='spa1'>Yes</label>
+                                                <input type='radio' id = 'spa1' value = '1' name = 'spa'>
+                                            </p>
+                                            <p class = 'Create__row'>
+                                                <label for='spa0'>No</label>
+                                                <input type='radio'id = 'spa0' value = '0' name = 'spa'>
+                                            </p>
+                                        </div>
+                                    
+                                        <p>Condicioner</p>
+                                        <div class = 'Create__item'>
+                                            <p class = 'Create__row'>
+                                                <label for='cond1'>Yes</label>
+                                                <input type='radio' id = 'cond1' value = '1' name = 'condicioner'>
+                                            </p>
+                                            <p class = 'Create__row'>
+                                                <label for='cond0'>No</label>
+                                                <input type='radio'id = 'cond0' value = '0' name = 'condicioner'>
+                                            </p>
+                                        </div>
+                                        <div class = 'Create__item'>
+                                                <input type='submit' name = 'CreateNewOrder' value='Create new Order'>
+                                        </div>
+
+                                    </form>
+                                </div>
+                            </div>";
+                                $count = count($rowsToUpdate);   
+                                for ($i=0; $i < $count ; $i++) { 
+                                    mysqli_query($connect, "UPDATE `usersorders` SET Examined = '0' WHERE id = '$rowsToUpdate[$i]'");
+                                }
+                                header('Location:/admins_page.php');
+                            }
+                            if(isset($_POST['CreateNewOrder'])){
+                                $getHotel = $_POST['Hotel'];
+                                $dateStart = $_POST['dateStart'];
+                                $dateEnd = $_POST['dateEnd'];
+                                $Cost = $_POST['cost'];
+                                $HotelType = $_POST['Type'];
+                                $NumberRooms = $_POST['rooms'];
+                                $S = rand(50,120);
+                                $NumberBeds = $_POST['beds'];
+                                $Breakfast = $_POST['breakfast'];
+                                $Pet = $_POST['pet'];
+                                $Smoke = $_POST['smoke'];
+                                $Spa = $_POST['spa'];
+                                $condicioner =  $_POST['condicioner'];
+                                $s = mysqli_query($connect, "INSERT INTO  `propositons`(`Hotel`, `DateStart`, `DateEnd`, `Cost`, `breakfastInclude`, `Type`, `Rooms`, `Pet friendly`, `For smoking`, `Spa Salon`, `Total S`, `Beds`, `Condicioner`, `Available`) VALUES ('$getHotel','$dateStart','$dateEnd','$Cost', '$Breakfast', '$HotelType', '$NumberRooms','$Pet','$Smoke','$Spa','$S','$NumberBeds','$condicioner','1')");
+                            }
                         //Edit block
-                        if(isset($_POST['edit_mail'])){
+                        if(isset($_POST['EditAvailable'])){
                             echo"<div class='edits'>
                             <div class='edits__item'>
                                 <form method='post'>";
-                            $edit = $_POST['delete'];
+                            $edit = $_POST['Availabledelete'];
                             $count  = count($edit);
                             for ($i=0; $i < $count; $i++) { 
-                                $mailToCorrect = mysqli_fetch_assoc(mysqli_query($connect, "SELECT email FROM mailing WHERE id = '$edit[$i]'"));
+                                $AvailableTourToCorrect = mysqli_fetch_assoc(mysqli_query($connect, "SELECT * FROM propositons WHERE id = '$edit[$i]'"));
                                 echo "                                        
-                                <p class ='edit__title'>Edit Mail Row № ".$edit[$i]."</p>
-                                  <input class ='edit__input' placeholder= '$mailToCorrect[email]' type='text' name = 'Email".$i."'>
-                                  <input  type='text' hidden name = '$i' value = '$edit[$i]'>       
-                                ";           
+                                <p class ='edit__title'>Edit № ".$edit[$i]."</p>";           
                             }
                             echo"
                                 <input type = 'submit' class = 'standartStyle' value = 'Commit changes' name = 'ChangeMail'>

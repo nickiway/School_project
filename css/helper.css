@@ -83,7 +83,7 @@
     padding:10px;
     width:200px;
 }
-.Edit, .EditUser{
+.Edit, .EditUser, .CreateAvailable{
     font-weight: bold;
     font-size: 18px;
     margin:0px 20px;
@@ -96,7 +96,19 @@
     padding:10px;
     width:200px;
 }
-
+.EditAvailable{
+    font-weight: bold;
+    font-size: 18px;
+    margin:0px 20px;
+    border:green ;
+    box-shadow: 0px 0px 10px limegreen inset;
+    background-color: green;
+    color:#fff;
+    text-shadow: 0px 0px 3px #000;
+    border-radius: 20px;
+    padding:10px;
+    width:200px;  
+}
 
 /* Orders Table */
 .Commit, .Reject, .Undefined{
