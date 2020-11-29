@@ -16,7 +16,7 @@ $getAllHotels = mysqli_query($connect, "SELECT HotelName FROM hotels");
 
 if (isset($_POST['ChangeAvailableHotels'])) {
 $inputNum = (count($_POST)/10) - 1;
-for ($i=0; $i < $inputNum ; $i++) 
+for ($i=0; $i < $inputNum; $i++) 
 { 
     $hotel = $_POST['Hotel'];
     $id = $_POST["$i"];
@@ -26,13 +26,13 @@ for ($i=0; $i < $inputNum ; $i++)
     $type = $_POST['hotelType'];
     $rooms = $_POST['RoomNum'];
     $beds = $_POST['BedsNum'];
-    $breakfast = $_POST['breakfast'];
-    $pet = $_POST['pet'];
+    $breakfast = $_POST["breakfast$i"];
+    $pet = $_POST["pet$i"];
     $S = rand(90, 150);
-    $smoke = $_POST['smoke'];
-    $spa = $_POST['spa'];
-    $condicioner = $_POST['condicioner'];
-    $available = $_POST['available'];
+    $smoke = $_POST["smoke$i"];
+    $spa = $_POST["spa$i"];
+    $condicioner = $_POST["condicioner$i"];
+    $available = $_POST["available$i"];
 }
 $s = mysqli_query($connect, "UPDATE `propositons` SET `Hotel`='$hotel',`DateStart`='$dateStart',`DateEnd`='$dateEnd',`Cost`='$cost',`breakfastInclude`='$breakfast',`Type`='$type',`Rooms`='$rooms',`Pet friendly`='$pet',`For smoking`='$smoke',`Spa Salon`='$spa',`Total S`='$S',`Beds`='$beds',`Condicioner`='$condicioner',`Available`='$available' WHERE `id`='$id'");
 header("Location:\admins_page.php");

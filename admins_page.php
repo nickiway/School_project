@@ -591,11 +591,11 @@ require "php_func/mailingsender.php";
                                         <div class = 'Create__item'>
                                             <p class = 'Create__row'>
                                                 <label for='breakfast1'>Yes</label>
-                                                <input type='radio' checked id = 'breakfast1' value = '1' name = 'breakfast'>
+                                                <input type='radio' checked id = 'breakfast' value = '1' name = 'breakfast$i'>
                                             </p>
                                             <p class = 'Create__row'>
                                                 <label for='breakfast0'>No</label>
-                                                <input type='radio'id = 'breakfast0' value = '0' name = 'breakfast'>
+                                                <input type='radio'id = 'breakfast0' value = '0' name = 'breakfast$i'>
                                             </p>
                                         </div>
 
@@ -608,11 +608,11 @@ require "php_func/mailingsender.php";
                                         
                                             <p class = 'Create__row'>
                                                 <label for='pet1'>Yes</label>
-                                                <input type='radio'checked id = 'pet1' value = '1' name = 'pet'>
+                                                <input type='radio'checked id = 'pet1' value = '1' name = 'pet$i'>
                                             </p>
                                             <p class = 'Create__row'>
                                                 <label for='pet0'>No</label>
-                                                <input type='radio'id = 'pet0' value = '0' name = 'pet'>
+                                                <input type='radio'id = 'pet0' value = '0' name = 'pet$i'>
                                             </p>
                                         </div>
 
@@ -621,11 +621,11 @@ require "php_func/mailingsender.php";
                                         
                                             <p class = 'Create__row'>
                                                 <label for='smoking1'>Yes</label>
-                                                <input type='radio'checked id = 'smoking1' value = '1' name = 'smoke'>
+                                                <input type='radio'checked id = 'smoking1' value = '1' name = 'smoke$i'>
                                             </p>
                                             <p class = 'Create__row'>
                                                 <label for='smoking0'>No</label>
-                                                <input type='radio'id = 'smoking0' value = '0' name = 'smoke'>
+                                                <input type='radio'id = 'smoking0' value = '0' name = 'smoke$i'>
                                             </p>
                                         </div>
                                         
@@ -633,11 +633,11 @@ require "php_func/mailingsender.php";
                                         <div class = 'Create__item'>
                                             <p class = 'Create__row'>
                                                 <label for='spa1'>Yes</label>
-                                                <input type='radio'checked id = 'spa1' value = '1' name = 'spa'>
+                                                <input type='radio'checked id = 'spa1' value = '1' name = 'spa$i'>
                                             </p>
                                             <p class = 'Create__row'>
                                                 <label for='spa0'>No</label>
-                                                <input type='radio'id = 'spa0' value = '0' name = 'spa'>
+                                                <input type='radio'id = 'spa0' value = '0' name = 'spa$i'>
                                             </p>
                                         </div>
                                     
@@ -645,11 +645,11 @@ require "php_func/mailingsender.php";
                                     <div class = 'Create__item'>
                                         <p class = 'Create__row'>
                                             <label for='cond1'>Yes</label>
-                                            <input type='radio'checked id = 'cond1' value = '1' name = 'condicioner'>
+                                            <input type='radio'checked id = 'cond1' value = '1' name = 'condicioner$i'>
                                         </p>
                                         <p class = 'Create__row'>
                                             <label for='cond0'>No</label>
-                                            <input type='radio'id = 'cond0' value = '0' name = 'condicioner'>
+                                            <input type='radio'id = 'cond0' value = '0' name = 'condicioner$i'>
                                         </p>
                                     </div>
                                     <input  type='text' name = '$i' value = '$edit[$i]'>
@@ -658,11 +658,11 @@ require "php_func/mailingsender.php";
                                     <div class = 'Create__item'>
                                         <p class = 'Create__row'>
                                             <label for='avai1'>Yes</label>
-                                            <input type='radio'checked id = 'avai1' value = '1' name = 'available'>
+                                            <input type='radio'checked id = 'avai1' value = '1' name = 'available$i'>
                                         </p>
                                         <p class = 'Create__row'>
                                             <label for='avai0'>No</label>
-                                            <input type='radio'id = 'avai0' value = '0' name = 'available'>
+                                            <input type='radio'id = 'avai0' value = '0' name = 'available$i'>
                                         </p>
                                     </div>
 
