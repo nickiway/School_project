@@ -5,6 +5,7 @@ require "php_func/Mail.php";
 require "php_func/Users.php";
 require "php_func/UsersOrders.php";
 require "php_func/AvailabelHotels.php";
+require "php_func/mailingsender.php";
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -38,6 +39,7 @@ require "php_func/AvailabelHotels.php";
             <div onclick = "get_tabs('availableOrders')" class="main__pannel__item"><img src="../icons/news.png" alt="">Create and post last news</div>
             <hr>
             <div onclick = "get_tabs('create-news')" class="main__pannel__item"><img src="../icons/news.png" alt="">Create and post last news</div>
+            <div onclick = "get_tabs('mailing')" class="main__pannel__item"><img src="../icons/news.png" alt="">Mail to everyone</div>
             <hr>
            
         </div>
@@ -50,8 +52,24 @@ require "php_func/AvailabelHotels.php";
                     <span><?= $_SESSION['logged_user']['Username']?></span>
                 </div>
             </div>
-            <!-- USER TABLE -->
-            <div class="main__table">
+
+    <!-- MAILING -->
+                
+<div class="main__table">
+            <div class =  "tabscontent" id="mailing">
+            <div class="add-news">
+                <form method = post >
+                    <p>Title</p>
+                    <input require name = 'title' type="text">
+                    <p>Massege</p>
+                    <input require name = 'massege' type="text">
+                    <input type="submit" name= "mailingButton" value="Send">
+                </form>
+            </div>  
+        </div>
+
+<!-- USER TABLE -->
+            
                 <div class =  "tabscontent" id="users">
                     <form class = "TableUsers" method = 'post'>
                         <table>
@@ -140,8 +158,10 @@ require "php_func/AvailabelHotels.php";
 
 <!-- News Form Start -->
     <div class =  "tabscontent" id="create-news">
+    <p id="file_demo">
+    </p>
         <div class="add-news">
-            <form method = "post" enctype="multipart/form-data">
+            <form method = "post" id = "createNews" enctype="multipart/form-data">
                 <div class="add-news__item">
                     <p class = "add-news__title">Add the new's title</p>
                     <input placeholder = "Enter news title" type="text" name = "title">
@@ -150,11 +170,42 @@ require "php_func/AvailabelHotels.php";
                     <textarea placeholder = "Enter news" name="the_text_of_news" id="" cols="60" rows="10"></textarea>
                     
                     <p class = "add-news__title">Choose at least 3 images</p>
-                    <input  placeholder = "Chose images (at least 3)" type="file" id = "file-selector"  name="Images[]" accept=".jpg, .jpeg, .png" multiple>
+                    <input  placeholder = "Chose images (at least 3)" type="file" id = "file-selector"  name="Images[]" onchange="myFunction()" accept=".jpg, .jpeg, .png" multiple>
                     <div class="news-source__input">
                         <label class = 'file-button__lable' for="file-selector"><div class = "file__button" for="file-selector">Ckick here to select files</div></label>
                     </div>
-
+                    <script>
+                        function myFunction(){
+                            var x = document.getElementById("file-selector");
+                            var txt = "";
+                            if ('files' in x) {
+                                if (x.files.length == 0) {
+                                txt = "Select one or more files.";
+                                } else {
+                                for (var i = 0; i < x.files.length; i++) {
+                                    txt += "<br><strong>" + (i+1) + ". file</strong><br>";
+                                    var file = x.files[i];
+                                    if ('name' in file) {
+                                    txt += "name: " + file.name + "<br>";
+                                    }
+                                    if ('size' in file) {
+                                    txt += "size: " + file.size + " bytes <br>";
+                                    }
+                                }
+                                }
+                            } 
+                            else {
+                                if (x.value == "") {
+                                txt += "Select one or more files.";
+                                } else {
+                                txt += "The files property is not supported by your browser!";
+                                txt  += "<br>The path of the selected file: " + x.value; 
+                                }
+                            }
+                            $('#file_demo').fadeIn();
+                            document.getElementById("file_demo").innerHTML = txt;
+                            }
+                    </script>
                     <input type="submit" name = "Submit_news" value="Submit">
                 </form>
             </div>
@@ -402,7 +453,6 @@ require "php_func/AvailabelHotels.php";
 
                                         <p>Breackfast included</p>
                                         <div class = 'Create__item'>
-                                        
                                             <p class = 'Create__row'>
                                                 <label for='breakfast1'>Yes</label>
                                                 <input type='radio' id = 'breakfast1' value = '1' name = 'breakfast'>
@@ -502,13 +552,124 @@ require "php_func/AvailabelHotels.php";
                             $count  = count($edit);
                             for ($i=0; $i < $count; $i++) { 
                                 $AvailableTourToCorrect = mysqli_fetch_assoc(mysqli_query($connect, "SELECT * FROM propositons WHERE id = '$edit[$i]'"));
-                                echo "                                        
-                                <p class ='edit__title'>Edit № ".$edit[$i]."</p>";           
+                                echo "               
+                    <div class=''>                
+                    <p class ='edit__title'>Edit № ".$edit[$i]."</p>
+                    <div class='edit__availabelHotel'>                          
+                            <div class='edit__colone'>
+                                <form method = 'post'>
+                                    <p>Change date of start</p>
+                                    <input name = 'dateStart' required value = '$AvailableTourToCorrect[DateStart]' type='date' min = '$datemin'>
+
+                                    <p>Change date of end</p>
+                                    <input name = 'dateEnd' value = '$AvailableTourToCorrect[DateEnd]' type='date' min = '$datemin'>
+
+                                    <p>New cost of the number</p>
+                                    <input   required value = '$AvailableTourToCorrect[Cost]'  name = 'cost' type='number'>
+
+                                    <p>The hotel`s type</p>
+                                    <select name='hotelType' value = 'VIP'>
+                                        <option selected value='Standart'>Standart</option>
+                                        <option value='Lux'>Lux</option>
+                                        <option value='VIP'>VIP</option>
+                                    </select>
+                                    
+                                    <p>Number of the rooms</p>
+                                    <input name = 'RoomNum' required type='text' value = '$AvailableTourToCorrect[Rooms]' >
+
+                                    <p>Number of beds</p>
+                                    <input type='number' required name = 'BedsNum' value = '$AvailableTourToCorrect[Beds]' >
+
+
+                                    <p>Breackfast included</p>
+                                        <div class = 'Create__item'>
+                                            <p class = 'Create__row'>
+                                                <label for='breakfast1'>Yes</label>
+                                                <input type='radio' checked id = 'breakfast1' value = '1' name = 'breakfast'>
+                                            </p>
+                                            <p class = 'Create__row'>
+                                                <label for='breakfast0'>No</label>
+                                                <input type='radio'id = 'breakfast0' value = '0' name = 'breakfast'>
+                                            </p>
+                                        </div>
+
+                                </div>
+                                <div class='edit__colone'>
+
+
+                                        <p>Pet friendly</p>
+                                        <div class = 'Create__item'>
+                                        
+                                            <p class = 'Create__row'>
+                                                <label for='pet1'>Yes</label>
+                                                <input type='radio'checked id = 'pet1' value = '1' name = 'pet'>
+                                            </p>
+                                            <p class = 'Create__row'>
+                                                <label for='pet0'>No</label>
+                                                <input type='radio'id = 'pet0' value = '0' name = 'pet'>
+                                            </p>
+                                        </div>
+
+                                        <p>Smoking allowed</p>
+                                        <div class = 'Create__item'>
+                                        
+                                            <p class = 'Create__row'>
+                                                <label for='smoking1'>Yes</label>
+                                                <input type='radio'checked id = 'smoking1' value = '1' name = 'smoke'>
+                                            </p>
+                                            <p class = 'Create__row'>
+                                                <label for='smoking0'>No</label>
+                                                <input type='radio'id = 'smoking0' value = '0' name = 'smoke'>
+                                            </p>
+                                        </div>
+                                        
+                                        <p>Spa Salon</p>
+                                        <div class = 'Create__item'>
+                                            <p class = 'Create__row'>
+                                                <label for='spa1'>Yes</label>
+                                                <input type='radio'checked id = 'spa1' value = '1' name = 'spa'>
+                                            </p>
+                                            <p class = 'Create__row'>
+                                                <label for='spa0'>No</label>
+                                                <input type='radio'id = 'spa0' value = '0' name = 'spa'>
+                                            </p>
+                                        </div>
+                                    
+                                    <p>Condicioner</p>
+                                    <div class = 'Create__item'>
+                                        <p class = 'Create__row'>
+                                            <label for='cond1'>Yes</label>
+                                            <input type='radio'checked id = 'cond1' value = '1' name = 'condicioner'>
+                                        </p>
+                                        <p class = 'Create__row'>
+                                            <label for='cond0'>No</label>
+                                            <input type='radio'id = 'cond0' value = '0' name = 'condicioner'>
+                                        </p>
+                                    </div>
+                                    <input  type='text' name = '$i' value = '$edit[$i]'>
+                                    <input  type='text' hidden name = 'Hotel' value = '$AvailableTourToCorrect[Hotel]'>
+                                    <p>Make hotel available?</p>
+                                    <div class = 'Create__item'>
+                                        <p class = 'Create__row'>
+                                            <label for='avai1'>Yes</label>
+                                            <input type='radio'checked id = 'avai1' value = '1' name = 'available'>
+                                        </p>
+                                        <p class = 'Create__row'>
+                                            <label for='avai0'>No</label>
+                                            <input type='radio'id = 'avai0' value = '0' name = 'available'>
+                                        </p>
+                                    </div>
+
+                                </div>
+                                </div>
+                                ";           
+
                             }
                             echo"
-                                <input type = 'submit' class = 'standartStyle' value = 'Commit changes' name = 'ChangeMail'>
-                            </form>
                             </div>
+                        <input type = 'submit' class = 'standartStyle2' value = 'Commit changes' name = 'ChangeAvailableHotels'>
+                                </form>
+                    </div>
                         </div>";
                             }
                         ?>
