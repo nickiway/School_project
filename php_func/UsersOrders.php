@@ -3,7 +3,7 @@
 $numOfRows = 15;
 $pageNumOrders  = $_GET['orders'];
 if($pageNumOrders == "" || $pageNumOrders == "1"){
-    $pageNumOrders = 1;
+    $pageNumOrders = 0;
 }
 else{
     $pageNumOrders = $pageNumOrders * $numOfRows - ($numOfRows-1);

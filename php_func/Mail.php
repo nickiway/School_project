@@ -32,14 +32,17 @@ if(isset($_POST['ChangeMail'])){
         if (preg_match("/^(?:[a-z0-9]+(?:[-_.]?[a-z0-9]+)?@[a-z0-9_.-]+(?:\.?[a-z0-9]+)?\.[a-z]{2,5})$/i",$emailItem)) 
         {
             $checkIfEmailExist  = mysqli_num_rows(mysqli_query($connect, "SELECT email FROM mailing WHERE email = '$emailItem'"));
-            if($checkIfEmailExist == 0) 
+            
                 mysqli_query($connect, "UPDATE mailing SET email = '$emailItem' WHERE ID = '$elemId'");
-            else{
-                die("you have entered incorect email");
-            }
         }
         else{
-            continue;
+             die(
+                "
+                <div style = 'display:flex; justify-content:center;align-items:center;height:100vh;'>
+                    <img height = '100%' src='icons/Error.jpg' alt='sad'>
+                </div>
+                "
+            );
         }
     }
     header('Location:/admins_page.php');

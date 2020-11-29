@@ -695,7 +695,8 @@ require "php_func/mailingsender.php";
                                     <th class = 'AvailableHotelMedia'>Date</th>
                                     <th>Ordered hotel</th>
                                     <th class = 'AvailableHotelMedia'>The users Id</th>
-                                    <th>The users Phone</th>                                <th>Recall Time</th>                                
+                                    <th>The users Phone</th>   
+                                    <th>The users Full name</th>                                <th>Recall Time</th>                                
                                     <th class = 'AvailableHotelMedia'>User's Email</th>
                                     <th class = 'AvailableHotelMedia'>Was it exemined?</th>
                                 </tr>
@@ -703,6 +704,7 @@ require "php_func/mailingsender.php";
                                     $email = $order['UsersEmail'];    
                                     $id = $order['id'];   
                                     $phone = $order['Phone']; 
+                                    $Fullname = $order['Fullname']; 
                                     $recallTime = $order['Recall_time'];
                                     $OrderedHotel = $order['Hotel'];
                                     $DateSend = $order['Date'];
@@ -725,6 +727,7 @@ require "php_func/mailingsender.php";
                                     <td>$OrderedHotel</td>
                                     <td class = 'AvailableHotelMedia'>$id</td>
                                     <td>$phone</td>
+                                    <td>$Fullname</td>
                                     <td>$recallTime</td>
                                     <td class = 'AvailableHotelMedia'>$UsersEmail</td>
                                     <td class = 'AvailableHotelMedia'><img src='".ICONDIR.$progressImage."' alt='result'></td>
