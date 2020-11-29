@@ -40,16 +40,12 @@ echo "<div class = 'offers__info__block'>
         <div class  =  'name-center__row'>
             <div class = 'name-center__element'>$city</div>
             <div class = 'name-center__element' >$country</div>
-            <div class = 'center-travel_button'><button class = 'travel-button'>Travel to $city</button></div>
+            <div class = 'center-travel_button'><button onclick =\"window.location.href = 'order_tour.php?to=$country&HotelName=Anywhere&dateFrom=&dateTo=&sendOrder=Find+the+Hotel'\"  class = 'travel-button'>Travel to $country</button></div>
         </div>
     </div>";
 echo "
 <div class = 'tabs'>
- <a class = 'tabs__link' href = '#first/$link'><div id =  '1' class='tabs__items'>Scrores</div></a>
- <a class = 'tabs__link' href = '#second/$link'><div id = '2'class='tabs__items'>Cost Of Living</div></a>
- <a class = 'tabs__link' href = '#third/$link'><div id = '3' class='tabs__items'>Pros And Cons</div></a>
- <a class = 'tabs__link' href = '#fourth/$link'><div id = '4' class='tabs__items'>Paradise Guide</div></a>
- <a class = 'tabs__link' href = '#fifth/$link'><div id = '5' class='tabs__items'>Local Introduction</div></a>
+ <a class = 'tabs__link' href = '#first/$link'><div id =  '1' class='tabs__items'>Scrores of the city in  graphics</div></a>
 </div>
 <div class = 'tabsContent'>
  <div id = 'first/$link'  class='tabContent'>
@@ -105,10 +101,6 @@ echo "
         </div>
     </div>
  </div>
- <div id = 'second/$link' class='tabContent'>adasdadasdasdasda</div>
- <div id = 'third/$link'class='tabContent'>ddasdadasda</div>
- <div id = 'fourth/$link'class='tabContent'>dsadasdadada</div>
- <div id = 'fifth/$link'class='tabContent'>ddasdadadadasd</div>
 </div>
 </div>
 </div>

@@ -164,15 +164,11 @@ dark.fadeOut("slow");
                             "<div class  =  'name-center__row'>"+
                                 "<div class = 'name-center__element'>"+ data.city +"</div>"+
                                 "<div class = 'name-center__element' >"+ data.country +"</div>"+
-                                "<div class = 'center-travel_button'><button class = 'travel-button'>Travel to "+ data.city +" </button></div>"+
+                                "<div class = 'center-travel_button'><button onclick =\"window.location.href = 'order_tour.php?to=$country&HotelName=Anywhere&dateFrom=&dateTo=&sendOrder=Find+the+Hotel'\" class = 'travel-button'>Travel to "+ data.country +" </button></div>"+
                             "</div>"+
                         "</div>"+
                         "<div class = 'tabs'>"+
-                            " <a class = 'tabs__link' href = '#first/"+ data.link +"'><div id =  '1' class='tabs__items'>Scrores</div></a>"+
-                            "<a class = 'tabs__link' href = '#second/"+ data.link +"'><div id = '2'class='tabs__items'>Cost Of Living</div></a>"+
-                            "<a class = 'tabs__link' href = '#third/"+ data.link +"'><div id = '3' class='tabs__items'>Pros And Cons</div></a>"+
-                            "<a class = 'tabs__link' href = '#fourth/"+ data.link +"'><div id = '4' class='tabs__items'>Paradise Guide</div></a>"+
-                            "<a class = 'tabs__link' href = '#fifth/"+ data.link +"'><div id = '5' class='tabs__items'>Local Introduction</div></a>"+
+                            " <a class = 'tabs__link' href = '#first/"+ data.link +"'><div id =  '1' class='tabs__items'>Scrores of the city in  graphics</div></a>"+
                         "</div>"+
                         
                         "<div class = 'tabsContent'>"+

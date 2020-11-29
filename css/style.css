@@ -1021,7 +1021,7 @@ transition: .4s;
 }
 .search_item{
     list-style: none;
-    margin:auto 10px;
+    margin:0px 10px 0px 0px ;
     height:100%;
     cursor:pointer;
 }

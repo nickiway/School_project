@@ -100,7 +100,6 @@ require "php_func/country_info.php";
             <div id = "filter__row"> 
                 <!-- first block -->
                     <div class="filter__right__block">
-                        <button onclick = "filter_up()" class = "filter__button filter__button__active">Filter</button>
                         <li class="search_item">
                             <form method="get">
                                 <input type="search" name = "search" autocomplete = "off"  placeholder = "Find The City or Country">
@@ -111,8 +110,7 @@ require "php_func/country_info.php";
                         ?>
                     </div>
                 <!-- second block -->
-                    <div class = "filter__left__block">    
-                    <button style = "width:100px;">SSSS</button>          
+                    <div class = "filter__left__block">             
                         <form method = 'get' action="">        
                                 <select onchange="if (this.value) window.location.href = this.value" name="" id="">
                                 <option style = "display:none;"  class = "filter__option" value="current"><?php echo "$sortname";?></option>
