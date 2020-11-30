@@ -1133,3 +1133,10 @@ font-size: 16px;
 width:100%;
 border-radius: 10px;
 }
+.graphs__body{
+    background-color:#a6a6a6;
+    width:50%;
+    height:25px;
+    overflow:hidden;
+    border-radius:10px;
+}

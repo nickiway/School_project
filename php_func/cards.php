@@ -113,13 +113,15 @@ echo "
 <div class = 'offers__city'>$city</div>
 </div>
 <a class = 'be-up' href = '#first/$link'><div class = 'offers__dark'>
-<div class = 'offers__graphics offers__graphics__first'><img src = 'icons/money.svg'><div class = 'offers__signs'>Cost</div><div style ='background-color:#a6a6a6;width:50%;height:25px;overflow:hidden; border-radius:10px;'><div class ='offers__element' style = 'background-color:$color_cost;width:$percent_cost";echo"%''></div></div></div>
-<div class = 'offers__graphics'><img src = 'icons/internet.svg'><div class = 'offers__signs'>WiFi</div><div style ='background-color:#a6a6a6;width:50%;height:25px;overflow:hidden; border-radius:10px;'><div class ='offers__element'  style = 'background-color:$color_wifi;width:$percent_wifi";echo"%''></div></div></div>
-<div class = 'offers__graphics'><img src = 'icons/happy-hour.svg'><div class = 'offers__signs'>Fun</div><div style ='background-color:#a6a6a6;width:50%;height:25px;overflow:hidden; border-radius:10px;'><div class ='offers__element'  style = 'background-color:$color_fun;width:$percent_fun";echo"%''></div></div></div>
-<div class = 'offers__graphics'><img src = 'icons/safety.svg'><div class = 'offers__signs'>Safety</div><div style ='background-color:#a6a6a6;width:50%;height:25px;overflow:hidden; border-radius:10px;'><div class ='offers__element'  style = 'background-color:$color_safety;width:$percent_safety";echo"%''></div></div></div>
+<div class = 'offers__graphics offers__graphics__first'><img src = 'icons/money.svg'><div class = 'offers__signs'>Cost</div><div class = 'graphs__body'><div class ='offers__element' style = 'background-color:$color_cost;width:$percent_cost";echo"%''></div></div></div>
+
+<div class = 'offers__graphics'><img src = 'icons/internet.svg'><div class = 'offers__signs'>WiFi</div><div class = 'graphs__body'><div class ='offers__element'  style = 'background-color:$color_wifi;width:$percent_wifi";echo"%''></div></div></div>
+
+<div class = 'offers__graphics'><img src = 'icons/happy-hour.svg'><div class = 'offers__signs'>Fun</div><div class = 'graphs__body'><div class ='offers__element'  style = 'background-color:$color_fun;width:$percent_fun";echo"%''></div></div></div>
+
+<div class = 'offers__graphics'><img src = 'icons/safety.svg'><div class = 'offers__signs'>Safety</div><div class = 'graphs__body'><div class ='offers__element'  style = 'background-color:$color_safety;width:$percent_safety";echo"%''></div></div></div>
 </a>
 <div class = 'offers__close'>✖</div>
-<img style  = 'position:absolute; bottom:10px; right:10px;width:30px; fill:red;' src = 'icons/heart.svg'>
 </div>
 </div>";
 ?>
