@@ -1,8 +1,8 @@
 <?
 require "php_func/connection.php";
-$companyOffers = array("1","2","3","4");
-$offersHeaders = array("11","22","22","44");
-$offersIcons = array("tourism-ico","tourism-ico","tourism-ico","tourism-ico");
+$companyOffers = array("Mild prices for amazing hotels which you can cheply attended","Unbelivable adventures with a huge pleasure","Convinient and fast use of the site and high-quality support","Our web site made for you convinient use, so cheer it up :)","All the recomented hotels will bring only you positive emotions", "Our quality of the hotel renting is on the higest level due to our experience");
+$offersHeaders = array("Affordable prices","Amazing feelings","Support quality","Interface","Pleasure Time","Our quality");
+$offersIcons = array("price-tag","place","24-hours","responsive","happy","medal");
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -61,16 +61,19 @@ $offersIcons = array("tourism-ico","tourism-ico","tourism-ico","tourism-ico");
                 </div>
             </div>
             <div class="our-offers">
-                <h2 class = "wow zoomIn ">What we offer:</h2>
+                <h2 class = "wow zoomIn ">Reasons of chosing us and our offers</h2>
                 <div class="our-offers__row">
                     <?
                     for ($i=0; $i <count($companyOffers) ; $i++) { 
                         echo"
                         <div class ='our-offers__cards wow fadeIn'>
-                            <div class='our-offers__svg'>
-                                <img src='".ICONDIR.$offersIcons[$i].".svg' alt='$offersHeaders'>
+                        <p class= 'our-offers__header text3d' align = center>$offersHeaders[$i]</p>
+                            <div class='our-offers__content'>
+                                <div class='our-offers__svg'>
+                                    <img src='".ICONDIR.$offersIcons[$i].".png' alt='$offersHeaders'>
+                                </div>
+                                <p class = 'our-offers__text text3d'>$companyOffers[$i]</p>
                             </div>
-                            <p class = 'our-offers__text'></p>
                         </div>
                         ";
                     }
