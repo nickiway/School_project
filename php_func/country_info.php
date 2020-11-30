@@ -57,7 +57,7 @@ $degree_name, 'mil.of.mer','/ 100 %', 'm / s');
 
 //The images links
 
-$images_href = array('../icons/money.svg','../icons/internet.svg','../icons/happy-hour.svg','../icons/safety.svg','../icons/internet.svg','../icons/internet.svg','../icons/internet.svg','../icons/internet.svg','../icons/internet.svg');
+$images_href = array('../icons/money.svg','../icons/internet.svg','../icons/happy-hour.svg','../icons/safety.svg','../icons/temperature2.png','../icons/barometer.png','../icons/humidity.png','../icons/windsock.png');
 
 //Count array 
 

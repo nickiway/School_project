@@ -80,7 +80,7 @@ var the_array_of_percent = [width_cost,width_wifi,width_fun,width_safe,width_deg
 // Percent Units
 var units = [cost_units,'Mps',' / 10 points',' / 10 points',degree_units,'mil.of.mer','/ 100 %', 'm / s'];
 // Percent images link
-var images_href = ['../icons/money.svg','../icons/internet.svg','../icons/happy-hour.svg','../icons/safety.svg','../icons/internet.svg','../icons/internet.svg','../icons/internet.svg','../icons/internet.svg','../icons/internet.svg'];
+var images_href = ['../icons/money.svg','../icons/internet.svg','../icons/happy-hour.svg','../icons/safety.svg','../icons/temperature2.png','../icons/barometer.png','../icons/humidity.png','../icons/windsock.png'];
 // The value of charts
 var array_of_qualities = [cost, data.WiFi,data.fun, data.safet,degree ,data.Pressure,data.Humidity,data.Wind_speed];
 // Color conditions
