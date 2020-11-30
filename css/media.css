@@ -35,9 +35,22 @@
 }
 @media screen and (max-width:400px){
     #menu__more__info{
-        width:100vh;
-        height:100vh;
+        width:100% !important;
+        min-width: 360px;
+        height:100%;
         left:-30px;
+    }
+    .more__row{
+        margin: 0;
+        padding: 0;
+        background-color: #404040;
+        display: block;
+    }
+    .more__body{
+        margin:0px;
+    }
+    .more__column{
+        width:100%;
     }
 }
 @media screen and (max-width:800px){
@@ -46,6 +59,15 @@
         max-height:100%;
         top:0;
         margin:0px;
+    }
+    #filter__row{
+        display: block;
+    }
+    .filter__right__block,.filter__left__block{
+        display: flex;
+        margin:10px;
+        justify-content: start;
+        align-items: center;
     }
     .exit-more-phone{
         opacity: 1;
