@@ -213,11 +213,11 @@ function checkedRowAvailable(id)
     var CancellBtb = document.getElementById('CancelAllAvailable');
     if(CheckboxId.checked){
         var RowId = document.getElementById(id+'Ava');
-        RowId.classList.toggle('activeCheck');
+        RowId.classList.add("activeCheck");
     }
     else if(!CheckboxId.checked){
         var RowId = document.getElementById(id+'Ava');
-        RowId.classList.toggle('activeCheck');
+        RowId.classList.remove("activeCheck");
     }
     if(isChecked != 0){
         CancellBtb.style.display ="block";
@@ -234,7 +234,7 @@ BtnAllAvailable.onclick = function(){
     var RowId = document.querySelectorAll('.AvailableTd'); 
         for (var i = 0; i < checkBoxes.length; i++) { 
             checkBoxes[i].checked = true; 
-            RowId[i].classList.toggle('activeCheck');
+            RowId[i].classList.add("activeCheck");
         }  
         CancellBtbAvailable .style.display = "block";
 }
@@ -243,7 +243,7 @@ CancellBtbAvailable.onclick = function () {
     var RowId = document.querySelectorAll('.AvailableTd'); 
         for (var i = 0; i < checkBoxes.length; i++) { 
             checkBoxes[i].checked = false; 
-            RowId[i].classList.toggle('activeCheck');
+            RowId[i].classList.remove("activeCheck");
         } 
     CancellBtbAvailable.style.display = "none";
 }
