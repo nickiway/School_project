@@ -36,10 +36,10 @@ require "php_func/mailingsender.php";
             </div>
             <div onclick = "get_tabs('users')" class="main__pannel__item"><img src="../icons/profile.svg" alt="">Users Table</div>
             <div onclick = "get_tabs('Usersorder')" class="main__pannel__item"><img src="../icons/country.svg" alt="">Recent Orders</div>
-            <div onclick = "get_tabs('availableOrders')" class="main__pannel__item"><img src="../icons/news.png" alt="">Hotels Table</div>
+            <div onclick = "get_tabs('availableOrders')" class="main__pannel__item"><img src="../icons/hotel.png" alt="">Hotels Table</div>
             <hr>
             <div onclick = "get_tabs('create-news')" class="main__pannel__item"><img src="../icons/news.png" alt="">Create and post last news</div>
-            <div onclick = "get_tabs('mailing')" class="main__pannel__item"><img src="../icons/news.png" alt="">Mail to everyone</div>
+            <div onclick = "get_tabs('mailing')" class="main__pannel__item"><img src="../icons/email.png" alt="">Mail to everyone</div>
             <hr>
             <button id = 'toogleMenuAdmin2' class = "standartStyle">Get Menu</button>
         </div>
@@ -565,26 +565,26 @@ require "php_func/mailingsender.php";
                             <div class='edit__colone'>
                                 <form method = 'post'>
                                     <p>Change date of start</p>
-                                    <input name = 'dateStart' required value = '$AvailableTourToCorrect[DateStart]' type='date' min = '$datemin'>
+                                    <input name = 'dateStart$i' required value = '$AvailableTourToCorrect[DateStart]' type='date' min = '$datemin'>
 
                                     <p>Change date of end</p>
-                                    <input name = 'dateEnd' value = '$AvailableTourToCorrect[DateEnd]' type='date' min = '$datemin'>
+                                    <input name = 'dateEnd$i' value = '$AvailableTourToCorrect[DateEnd]' type='date' min = '$datemin'>
 
                                     <p>New cost of the number</p>
-                                    <input   required value = '$AvailableTourToCorrect[Cost]'  name = 'cost' type='number'>
+                                    <input   require value = '$AvailableTourToCorrect[Cost]'  name = 'cost$i' type='number'>
 
                                     <p>The hotel`s type</p>
-                                    <select name='hotelType' value = 'VIP'>
+                                    <select name='hotelType$i' value = 'VIP'>
                                         <option selected value='Standart'>Standart</option>
                                         <option value='Lux'>Lux</option>
                                         <option value='VIP'>VIP</option>
                                     </select>
                                     
                                     <p>Number of the rooms</p>
-                                    <input name = 'RoomNum' required type='text' value = '$AvailableTourToCorrect[Rooms]' >
+                                    <input name = 'RoomNum$i' required type='text' value = '$AvailableTourToCorrect[Rooms]' >
 
                                     <p>Number of beds</p>
-                                    <input type='number' required name = 'BedsNum' value = '$AvailableTourToCorrect[Beds]' >
+                                    <input type='number' required name = 'BedsNum$i' value = '$AvailableTourToCorrect[Beds]' >
 
 
                                     <p>Breackfast included</p>
@@ -652,8 +652,8 @@ require "php_func/mailingsender.php";
                                             <input type='radio'id = 'cond0' value = '0' name = 'condicioner$i'>
                                         </p>
                                     </div>
-                                    <input  type='text' name = '$i' value = '$edit[$i]'>
-                                    <input  type='text' hidden name = 'Hotel' value = '$AvailableTourToCorrect[Hotel]'>
+                                    <input  type='hidden' name = '$i' value = '$edit[$i]'>
+                                    <input  type='text' hidden name = 'Hotel$i' value = '$AvailableTourToCorrect[Hotel]'>
                                     <p>Make hotel available?</p>
                                     <div class = 'Create__item'>
                                         <p class = 'Create__row'>
