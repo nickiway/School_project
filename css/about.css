@@ -181,23 +181,20 @@
   .new-more__body{
       margin:40px 200px;
   }
-  .our-offers{
-  background-color: #1273EB; 
-  }
   .our-offers__row{
     margin:50px;
+    flex-wrap: wrap;
     display: flex;
     justify-content: center;
     align-items: center;
   }
   .our-offers__svg{
-    padding: 10px;
-    border:2px solid #000;
-    border-radius: 100%;
-    width:100px;
+    padding:20px;
+    margin: 10px;
     overflow: hidden;
     display: flex;
     justify-content: center;
+    align-self: center;
     transition: .5s
   }
   .our-offers__svg:hover{
@@ -205,10 +202,25 @@
     transition: .5s;
   }
   .our-offers__svg img{
-    height:100%;
-    width:100%;
+    height:96px;
+    border:2px solid #000;
+    padding:10px;
+    border-radius: 100%;
+    width:96px;
   }
   .our-offers__cards{
+    margin: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     background-color: #fff;
-    width:auto;
+    border-radius: 20px;
+    box-shadow: 0px 0px 15px #1273EB inset;
+    width:400px;
+  }
+  .our-offers__svg{
+    margin:20px;
+  }
+  .our-offers__text{
+    word-wrap: break-word;
   }

@@ -1,8 +1,8 @@
 <?
 require "php_func/connection.php";
-$companyOffers = array("1","2" );
-$offersHeaders = array("11","22");
-$offersIcons = array("tourism-ico","tourism-ico");
+$companyOffers = array("1","2","3","4");
+$offersHeaders = array("11","22","22","44");
+$offersIcons = array("tourism-ico","tourism-ico","tourism-ico","tourism-ico");
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -61,15 +61,16 @@ $offersIcons = array("tourism-ico","tourism-ico");
                 </div>
             </div>
             <div class="our-offers">
-                <h2 class = "wow zoomIn ">We offer you:</h2>
+                <h2 class = "wow zoomIn ">What we offer:</h2>
                 <div class="our-offers__row">
                     <?
                     for ($i=0; $i <count($companyOffers) ; $i++) { 
                         echo"
-                        <div class ='our-offers__cards'>
+                        <div class ='our-offers__cards wow fadeIn'>
                             <div class='our-offers__svg'>
                                 <img src='".ICONDIR.$offersIcons[$i].".svg' alt='$offersHeaders'>
                             </div>
+                            <p class = 'our-offers__text'></p>
                         </div>
                         ";
                     }
