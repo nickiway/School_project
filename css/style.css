@@ -689,27 +689,6 @@ background-color: rgba(0,0,0,.7);
     min-height:100px;
     box-shadow: 0px 0px 5px #fff inset;
 }
-a.back-to-top {
-	display: none;
-	width: 55px;
-	height: 55px;
-	position: fixed;
-	z-index: 999;
-    right: 20px;
-    border:3px solid #1273EB;
-	bottom: 20px;
-	background: #27AE61 url("up-arrow.png") no-repeat center 43%;
-    border-radius: 100%;
-    transition: .2s;    
-}
-a.back-to-top:hover{
-    border-color:#fff;
-    transition: .2s;
-}
-a.back-to-top img {
-    width:55px;
-    height:55px;
-}
 .ajax_loader{
     width:100px;
     height:100px;

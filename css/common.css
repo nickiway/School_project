@@ -37,14 +37,14 @@ a{
 }
 a.back-to-top {
 	display: none;
-	width: 55px;
-	height: 55px;
+	width: 65px;
+	height: 65px;
 	position: fixed;
 	z-index: 999;
   right: 20px;
   border:3px solid #1273EB;
-	bottom: 80px;
-	background: #27AE61 url("up-arrow.png") no-repeat center 43%;
+  bottom:100px;
+  background-color: #1273EB;
   border-radius: 100%;
   transition: .2s;    
 }
@@ -55,6 +55,7 @@ a.back-to-top:hover{
 a.back-to-top img {
     width:55px;
     height:55px;
+    margin: auto;
 }
 .preloader {
     position: fixed;
