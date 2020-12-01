@@ -358,7 +358,7 @@ require "php_func/mailingsender.php";
                                     else{
                                         $Condidcioner ='no.png';
                                     }
-                                    if ($Available == 0 || $dateStart <= date("Y-m-d")) {
+                                    if ($Available == 0 || $dateStart <= date("Y-m-d", strtotime(date("Y-m-d").'+ 2 days'))) {
                                         $classAvailable = "reded";
                                     }
                                     else{

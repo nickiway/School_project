@@ -105,6 +105,7 @@ require "php_func/currency.php";
                 $dateEnd =  date("M d", strtotime($row['DateEnd']));//dateEnd
                 $city = $row['City'];//Capital
                 $starsNum = $row['Stars'];
+                $dateToUp = date('Y-m-d', strtotime($dateStart. ' - 2 days')); 
                 $region = $row['Region'];//Region
                 $dateDiff =ceil(abs(strtotime($dateStart) - strtotime($dateEnd)) / 86400);
                 $cost = round((intval($row['Cost']) * $currency_value_US / $currency_value)/$dateDiff, 2);//Cost  
@@ -194,7 +195,7 @@ require "php_func/currency.php";
 
             <div class ='order__inputBlokc'>
                 <p>When you convinient we recall you?</p>
-                <input name = 'recallTime'  required type='datetime-local'>
+                <input name = 'recallTime'  required min='".$today."T".$time."' max = '".$dateToUp."T20:30' type='datetime-local'>
                 <input name = 'Hotel'  value = '$hotelName' type='hidden'>
 
                

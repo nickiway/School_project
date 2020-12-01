@@ -1,8 +1,10 @@
 <?
     require "connection.php";
+    $today = date("Y-m-d");
+    $time = date("h:i");
     #Checking if the user is registered 
     if($_SESSION['logged_user']['Username']== "") header("Location:index.php"); 
-    $todayDate = date("Y-m-d");
+    $todayDate = date("Y-m-d", strtotime($today.'+ 2 days'));
     $CountryTo = $_GET['to'];
     #Getting all the countries and hotels from DB to fill in Select
     $getHotel = mysqli_query($connect, "SELECT HotelName FROM hotels");
