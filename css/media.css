@@ -65,6 +65,16 @@
         height:100%;
         left:-30px;
     }
+    .our-offers__content img{
+        width: 64px !important;
+    }
+    .our-offers__text{
+        padding:10px;
+        text-align: center;
+    }
+    .our-offers__content{
+        display: block;
+    }
     .more__row{
         margin: 0;
         padding: 0;
