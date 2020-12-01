@@ -23,6 +23,7 @@ data:{"num":num,
 "sorting":sorting},
 beforeSend:function(){
 inprogress = true;
+$('#loadImg').show();
 }
 }).done(function(data){
 $('#loadImg').fadeOut("fast");
@@ -52,10 +53,11 @@ var width_fun = Math.round(100 * data.fun / <?echo $fun_max; ?>);
 var fun_color;
 
 // Degree Parametrs
+
 var degree_const = <?= $degree_max + abs($degree_min)?>;
 var width_degree = Math.round((<?=abs($degree_min)?> + Number(data.degree))/degree_const * 100 ) ;
 var degree_color;
-if(width_degree < 15) { width_degree == 15;}
+if(width_degree < 15) { width_degree = 15;}
 // Width Pressure
 var width_pressure = Math.round(100 * data.Pressure/ <?=$pressure_max?>);
 var pressure_color;

@@ -2,6 +2,7 @@
 require "php_func/connection.php"; 
 require "php_func/sorting.php";
 require "php_func/currency.php";
+$sortType = $_GET['sort'];
 $get_elem = mysqli_query($connect ,"SELECT * FROM offers WHERE country LIKE '%$get_search%' OR city LIKE '%$get_search%' ORDER BY $sorting LIMIT 10"); 
 foreach ($offers as $offer):
 $pressure = $offer['Pressure'];

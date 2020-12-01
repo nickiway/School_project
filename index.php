@@ -170,14 +170,14 @@ require "php_func/country_info.php";
                 <form action="" method =get>
                     <select id = "currency__select" class = "currency__select" onchange="if (this.value) window.location.href = this.value" name="" id="">
                         <option style = "display:none;" value="current"><?php echo "$currname - $cost_name";?></option>
-                        <option value="index.php?search=<?=$get_search?>&curr=USD&degree=<?php echo $degree_ab;?>&sort=<?php echo $sortname;?>">USD - $</option>
-                        <option value="index.php?search=<?=$get_search?>&curr=EUR&degree=<?php echo $degree_ab;?>&sort=<?php echo $sortname;?>">EUR - €</option>
-                        <option value="index.php?search=<?=$get_search?>&curr=UAH&degree=<?php echo $degree_ab;?>&sort=<?php echo $sortname;?>">UAH - ₴</option>
+                        <option value="index.php?search=<?=$get_search?>&curr=USD&degree=<?php echo $degree_ab;?>&sort=<?php echo $sortType;?>">USD - $</option>
+                        <option value="index.php?search=<?=$get_search?>&curr=EUR&degree=<?php echo $degree_ab;?>&sort=<?php echo $sortType;?>">EUR - €</option>
+                        <option value="index.php?search=<?=$get_search?>&curr=UAH&degree=<?php echo $degree_ab;?>&sort=<?php echo $sortType;?>">UAH - ₴</option>
                     </select>
                     <select id = "currency__select" class = "currency__select" onchange="if (this.value) window.location.href = this.value" name="" id="">
                         <option style = "display:none;" value="current"><?php echo "$degree_name";?></option>
-                        <option value="index.php?search=<?=$get_search?>&curr=<?php echo $currname;?>&sort=<?php echo $sortname;?>&degree=cels">°C</option>
-                        <option value="index.php?search=<?=$get_search?>&curr=<?php echo $currname;?>&sort=<?php echo $sortname;?>&degree=forn">°F</option>
+                        <option value="index.php?search=<?=$get_search?>&curr=<?php echo $currname;?>&sort=<?php echo $sortType;?>&degree=cels">°C</option>
+                        <option value="index.php?search=<?=$get_search?>&curr=<?php echo $currname;?>&sort=<?php echo $sortType;?>&degree=forn">°F</option>
                     </select>
                 </form>
                 <div class="currency__more">
