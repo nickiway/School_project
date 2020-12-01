@@ -1,6 +1,6 @@
 <?
 require "php_func/connection.php";
-$companyOffers = array("Mild prices for amazing hotels which you can cheply attended","Unbelivable adventures with a huge pleasure","Convinient and fast use of the site and high-quality support","Our web site made for you convinient use, so cheer it up :)","All the recomented hotels will bring only you positive emotions", "Our quality of the hotel renting is on the higest level due to our experience");
+$companyOffers = array("Mild prices for amazing hotels which you can cheply attend","Unbelivable adventures with a huge pleasure","Convinient and fast use of the site and high-quality support","Our web site is made for you convinient use, so cheer it up :)","All the recomented hotels will bring only you positive emotions", "Our quality of the hotel renting is on the higest level due to our experience");
 $offersHeaders = array("Affordable prices","Amazing feelings","Support quality","Interface","Pleasure Time","Our quality");
 $offersIcons = array("price-tag","place","24-hours","responsive","happy","medal");
 ?>
@@ -79,9 +79,23 @@ $offersIcons = array("price-tag","place","24-hours","responsive","happy","medal"
                     }
                     ?>
                 </div>
+            </div>  
+            <div class="about__some-words">
+                <div class="dark-element">
+                    <div class="about__some-item">
+                        <h1 class = " center"> We are</h1>
+                        <p class = " center">A team of experts who are ready to help you find the best hotel you may need, we have a wide variety of hotels. Low and affordable prices. We are always ready to cooperate, so you will not lose heart in us. Our experts select only unique and interesting trips for you so that your vacation will be remembered as long as possible.</p>
+                    </div>
+                </div>
             </div>
+            <?
+                require "footer.php";
+            ?>
+                        
         </div>
+        
     </div>
+
     <script src="js/common.js"></script>
 </body>
 </html>

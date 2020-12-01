@@ -407,4 +407,53 @@ height:32px;
   font-size: 20px;
   font-weight: bold;
 }
-
+footer{
+  padding: 20px;
+}
+.footer__item{
+  display:flex;
+  justify-content:center;
+}
+.header__footer{
+  text-align:center;
+  margin:0px !important;
+}
+.contacts p{
+margin:20px;
+}
+.socials{
+  display: flex;
+}
+.socials a{
+  margin:auto;
+  cursor: pointer;
+  transition: .5s;
+}
+.socials a:hover{
+  transform: scale(1.3);
+  transition: .5s;
+}
+.about__some-words{
+width:100%;
+position: relative;
+background-image: url("../images/aboutUs.jpg");
+background-position: center;
+background-size: cover;
+background-repeat: no-repeat;
+background-attachment: fixed;
+height: 500px;
+}
+.about__some-item{
+  background-color: #fff;
+  padding:20px;
+  border-radius: 20px;
+}
+.center{
+  text-align: center;
+}
+p.center{
+ max-width: 800px;
+ margin:20px;
+ font-size: 20px;
+ line-height: 50px;
+}

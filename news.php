@@ -47,9 +47,8 @@ $newsImageClass = array("floatLeft" , "floatRight");
         </div>
             <ul class = "menu__row ">
                 <li class="menu__item  darked-text" onclick = "window.location.href='about.php'">About us</li>
-                <li class="menu__item  darked-text"onclick = "window.location.href='about.php'">Order the tour</li>
-                <li class="menu__item  darked-text"onclick = "window.location.href='about.php'">Forum</li>
-                <li class="menu__item  darked-text"onclick = "window.location.href='voting.php'">Vote Page</li>
+                <li class="menu__item  darked-text"onclick = "window.location.href='order_tour.php'">Order the tour</li>
+                <li class="menu__item  darked-text"onclick = "window.location.href='Weatherinformation.php'">About Weather</li>
                 <?      if(isset($_SESSION['logged_user']) && $_SESSION['logged_user']['Username'] == 'Admin'):?>  
                     <li class="menu__item  darked-text"onclick = "window.location.href='admins_page.php'">Admins Page</li>
                 <?endif;?>

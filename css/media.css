@@ -25,6 +25,22 @@
     #toogleMenuAdmin,#toogleMenuAdmin2{
         display: block;
     }
+    .about-body__row{
+        display: block;
+    }
+    .about-body__img {
+        width:100%;
+        margin:10px;
+        border-radius: 0px;
+    }
+    .about-body__img {
+    border-radius: 0px !important;
+    }
+    .about-body__container{
+        width:100%;
+        border-radius: 0px;
+        margin:auto;
+    }
     .switch__block-item{
         display: block;
     }
