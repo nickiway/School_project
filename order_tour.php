@@ -60,12 +60,12 @@ require "php_func/currency.php";
                                 <!-- Getting Date From -->
                                 <div class="order__input">
                                     <p class = "order__input-header">Date from</p>
-                                    <input name = "dateFrom" min = "<?=$todayDate?>" type="date">
+                                    <input name = "dateFrom" min = "<?=$todayDate?>" value = "<?=$todayDate?>" type="date">
                                 </div>   
                                 <!-- Getting Date To -->
                                 <div class="order__input">
                                     <p class = "order__input-header">Date till</p>
-                                        <input name = "dateTo" min = "<?=$todayDate?>" type="date">
+                                        <input name = "dateTo" min = "<?=$todayDate?>" value = "<?=date("Y-m-d", strtotime(date("Y-m-d").'+ 16 days'))?>" type="date">
                                 </div>      
 
                             </div>
@@ -80,6 +80,7 @@ require "php_func/currency.php";
         <div class = 'order-cards'>
             <div class = 'order-cards__row'>
                 <?
+                if (count(mysqli_fetch_assoc($orders)) != 0) {
                 while($row = mysqli_fetch_assoc($orders))
                 {
                 #Hotel parametrs: 
@@ -256,6 +257,14 @@ require "php_func/currency.php";
     </div>   
 </div>";
                 }
+            }
+            else if(count(mysqli_fetch_assoc($orders)) == 0 && isset($_GET['sendOrder']))
+            {
+                echo"<p align = center style ='display:flex;justify-content:center;align-items:center;font-size:20px;' class = 'text3d'>
+                <img style = 'margin:20px;' src='icons/error.png'> Sorry, there are no any films for you :( <img style = 'margin:20px;' src='icons/error.png'>
+                </p>";
+            }
+
                 ?>
             </div>
         </div>

@@ -14,6 +14,15 @@
     .profile{
         display: none;
     }
+    .nature__row{
+        flex-wrap: wrap;
+    }
+    .nature__row iframe{
+        width: 100%;
+    }
+    .nature{
+        width: 100%;
+    }
     .video__rassilka {
         display: none;  
     }
