@@ -164,7 +164,7 @@ dark.fadeOut("slow");
                             "<div class  =  'name-center__row'>"+
                                 "<div class = 'name-center__element'>"+ data.city +"</div>"+
                                 "<div class = 'name-center__element' >"+ data.country +"</div>"+
-                                "<div class = 'center-travel_button'><button onclick =\"window.location.href = 'order_tour.php?to=$country&HotelName=Anywhere&dateFrom=&dateTo=&sendOrder=Find+the+Hotel'\" class = 'travel-button'>Travel to "+ data.country +" </button></div>"+
+                                "<div class = 'center-travel_button'><button onclick =\"window.location.href = 'order_tour.php?to="+data.country+"&HotelName=Anywhere&dateFrom=&dateTo=&sendOrder=Find+the+Hotel'\" class = 'travel-button'>Travel to "+ data.country +" </button></div>"+
                             "</div>"+
                         "</div>"+
                         "<div class = 'tabs'>"+
