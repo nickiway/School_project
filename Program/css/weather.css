@@ -1,0 +1,29 @@
+*{
+    margin:0;
+    padding: 0;
+}
+.nature__header{
+    text-align: center;
+    font-size: 24px;
+    text-transform: uppercase;
+    margin:50px;
+    padding: 20px;
+    border-top: 2px solid #fff;
+    border-bottom: 2px solid #fff;
+}   
+.nature__row{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.nature__item{
+    width:calc( 50% - 40px);
+    margin: 20px;
+}
+.natute__title
+{
+    margin: 20px;
+    text-align: center;
+    font-size: 20px;
+
+}

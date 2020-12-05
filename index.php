@@ -21,6 +21,10 @@ require "php_func/country_info.php";
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     </head>
 <body>
+    <!-- Popup info -->
+    <div id="introduction">
+        <div style = "color:#fff;" onclick = "$(this).parent().fadeOut('slow')" >CLOSE</div>
+    </div>
     <!-- Up button -->
     <a href="#" class="back-to-top"><img src="../icons/up.svg" alt=""></a>
     <!--Pre_loader -->

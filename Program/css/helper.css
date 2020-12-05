@@ -1,0 +1,160 @@
+.darked-body{
+    background-color: #404040 !important;
+}
+.no-overflow-x{
+    overflow-x:hidden !important;
+}
+.no-margins{
+    margin:0 !important;
+}
+.text3d{
+    color:#fff;
+    text-shadow: 0px 0px 3px #000;
+    font-weight: bold;
+}
+.darked-text{
+    color:#000 !important;
+    text-shadow: none !important;
+}   
+.floatLeft{
+    float: left !important;
+}
+.signSpecial{
+    color:#1273EB;
+}
+.floatRight{
+    float: right !important;
+}
+.darkBoxShadow{
+    box-shadow: 0px 0px 3px #000 !important;
+}
+.standartStyle{
+    background-color: #1273EB;
+    color:#fff;
+    padding: 10px;
+    text-shadow: 0px 0px 3px #000;
+    border:none;
+}
+.standartStyle2{
+    background-color: #404040;
+    color:#fff;
+    text-shadow: 0px 0px 3px #000;
+    padding: 10px;
+    border:none;   
+}
+.present-image{
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    width:100%;
+    height:calc(100vh - 94px);
+    background-color: #fff;
+}
+.contrast{
+    filter: contrast(1.5);
+}
+.displayBlock{
+    display: block !important;
+}
+.pd-30{
+    padding: 30px;
+}
+.centerVertical{
+    display: flex;
+    align-items: center;
+}
+.centerHorizontal{
+    display: flex;
+    justify-content: center;
+}
+.contrastSign{
+    font-weight: bold !important;
+}
+.underlineText {
+    margin:0px 5px !important;
+    text-decoration: underline !important;
+}
+.m-t-40{
+    margin-top:40px !important;
+}
+.Delete, .DeleteUser{
+    border:red;
+    background-color: red;
+    color:#fff;
+    margin:0px 20px;
+    font-weight: bold;
+    font-size: 18px;
+    text-shadow: 0px 0px 3px #000;
+    box-shadow: 0px 0px 10px darkred inset;
+    border-radius: 20px;
+    padding:10px;
+    width:200px;
+}
+.Edit, .EditUser, .CreateAvailable{
+    font-weight: bold;
+    font-size: 18px;
+    margin:0px 20px;
+    border:limegreen ;
+    box-shadow: 0px 0px 10px green inset;
+    background-color: limegreen;
+    color:#fff;
+    text-shadow: 0px 0px 3px #000;
+    border-radius: 20px;
+    padding:10px;
+    width:200px;
+}
+.EditAvailable{
+    font-weight: bold;
+    font-size: 18px;
+    margin:0px 20px;
+    border:green ;
+    box-shadow: 0px 0px 10px limegreen inset;
+    background-color: green;
+    color:#fff;
+    text-shadow: 0px 0px 3px #000;
+    border-radius: 20px;
+    padding:10px;
+    width:200px;  
+}
+
+/* Orders Table */
+.Commit, .Reject, .Undefined{
+    background-position: center;
+    background-size: cover;
+    background-color: transparent;
+    background-repeat: no-repeat;
+    width: 64px;
+    border:none;
+    background-color: #fff;
+    margin:20px;
+    display: none;
+    height:64px;
+    transition: .5s;
+}
+.Commit:hover, .Reject:hover, .Undefined:hover{
+    transform: scale(1.2);
+    transition: .5s;
+}
+#mailing{
+    overflow: hidden;
+    background-color: #1273EB;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#mailing input, textarea {
+    margin:20px 0;
+    box-shadow: 0px 0px 2px #000 inset;
+}
+#create-news{
+    overflow: auto;
+}
+#toogleMenuAdmin,#toogleMenuAdmin2{
+    word-wrap: unset;
+    border-radius: 10px;
+    margin:0px 10px;
+}
+#toogleMenuAdmin2{
+    display: none;
+    margin:20px;
+}

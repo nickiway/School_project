@@ -8,7 +8,7 @@
             "type": "pwa-chrome",
             "request": "launch",
             "name": "Launch Chrome against localhost",
-            "url": "http://kvalif/admins_page.php",
+            "url": "file:///D:/ExtraWeb/Js3/index.html",
             "webRoot": "${workspaceFolder}"
         }
     ]
