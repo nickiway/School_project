@@ -7,6 +7,16 @@
 .no-margins{
     margin:0 !important;
 }
+.m-t-80{
+    margin-top: 80px;
+}
+.f-s-30{
+    font-size: 30px !important;
+    font-weight: bold !important;
+}
+.f-s-20{
+    font-size: 20px !important;
+}
 .text3d{
     color:#fff;
     text-shadow: 0px 0px 3px #000;
@@ -16,6 +26,12 @@
     color:#000 !important;
     text-shadow: none !important;
 }   
+.right{
+    text-align: right !important;
+}
+.left{
+    text-align: left !important;
+}
 .floatLeft{
     float: left !important;
 }

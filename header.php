@@ -27,6 +27,7 @@
                                 <p><img src="icons/verify.png" alt=""><a href="register.php">Autorisation</a></p>
                                 <p><img src="icons/login.png" alt=""><a href="login.php">Log In</a></p>
                                 <p><img src="icons/admin.png" alt=""><a href="admins_page.php">Admin Page</a></p>
+                                <p><img src="icons/verify.png" alt=""><a href="faq.php">FAQ</a></p>
                             </div>
                         </div>
                     </div>
@@ -36,6 +37,7 @@
                 <li class="menu__item" onclick = "window.location.href='about.php'">About us</li>
                 <li class="menu__item"onclick = "window.location.href='order_tour.php'">Order the tour</li>
                 <li class="menu__item"onclick = "window.location.href='WeaterInformation.php'">About Weather</li>
+                <li class="menu__item"onclick = "window.location.href='faq.php'">FAQ</li>
                 <?      if(isset($_SESSION['logged_user']) && $_SESSION['logged_user']['Status'] == 'Admin'):?>  
                     <li class="menu__item"onclick = "window.location.href='admins_page.php'">Admins Page</li>
                 <?endif;?>

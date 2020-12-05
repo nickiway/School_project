@@ -56,6 +56,7 @@ $newsImageClass = array("floatLeft" , "floatRight");
                                 <p><img src="icons/verify.png" alt=""><a href="register.php">Autorisation</a></p>
                                 <p><img src="icons/login.png" alt=""><a href="login.php">Log In</a></p>
                                 <p><img src="icons/admin.png" alt=""><a href="admins_page.php">Admin Page</a></p>
+                                <p><img src="icons/verify.png" alt=""><a href="faq.php">FAQ</a></p>
                             </div>
                         </div>
                     </div>
@@ -65,6 +66,7 @@ $newsImageClass = array("floatLeft" , "floatRight");
                 <li class="menu__item  darked-text" onclick = "window.location.href='about.php'">About us</li>
                 <li class="menu__item  darked-text"onclick = "window.location.href='order_tour.php'">Order the tour</li>
                 <li class="menu__item  darked-text"onclick = "window.location.href='Weatherinformation.php'">About Weather</li>
+                <li class="menu__item darked-text"onclick = "window.location.href='faq.php'">FAQ</li>
                 <?      if(isset($_SESSION['logged_user']) && $_SESSION['logged_user']['Username'] == 'Admin'):?>  
                     <li class="menu__item  darked-text"onclick = "window.location.href='admins_page.php'">Admins Page</li>
                 <?endif;?>

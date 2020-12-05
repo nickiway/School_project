@@ -21,10 +21,6 @@ require "php_func/country_info.php";
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     </head>
 <body>
-    <!-- Popup info -->
-    <div id="introduction">
-        <div style = "color:#fff;" onclick = "$(this).parent().fadeOut('slow')" >CLOSE</div>
-    </div>
     <!-- Up button -->
     <a href="#" class="back-to-top"><img src="../icons/up.svg" alt=""></a>
     <!--Pre_loader -->
@@ -54,6 +50,7 @@ require "php_func/country_info.php";
                                 <p><img src="icons/verify.png" alt=""><a href="register.php">Autorisation</a></p>
                                 <p><img src="icons/login.png" alt=""><a href="login.php">Log In</a></p>
                                 <p><img src="icons/admin.png" alt=""><a href="admins_page.php">Admin Page</a></p>
+                                <p><img src="icons/verify.png" alt=""><a href="faq.php">FAQ</a></p>
                             </div>
                         </div>
                     </div>
@@ -63,6 +60,7 @@ require "php_func/country_info.php";
                 <li class="menu__item" onclick = "window.location.href='about.php'">About us</li>
                 <li class="menu__item"onclick = "window.location.href='order_tour.php'">Order the hotel</li>
                 <li class="menu__item"onclick = "window.location.href='WeaterInformation.php'">About Weather</li>
+                <li class="menu__item"onclick = "window.location.href='faq.php'">FAQ</li>
                 <?if(isset($_SESSION['logged_user']) && $_SESSION['logged_user']['Status'] == 'Admin'):?>  
                     <li class="menu__item"onclick = "window.location.href='admins_page.php'">Admins Page</li>
                 <?endif;?>

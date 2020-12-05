@@ -52,6 +52,7 @@ require "php_func/mailingsender.php";
                     <li class="menu__item darked-text"onclick = "window.location.href='order_tour.php'">Order the tour</li>
                     <li class="menu__item darked-text"onclick = "window.location.href='WeaterInformation.php'">About Weather</li>
                     <li class="menu__item darked-text"onclick = "window.location.href='index.php'">Main Page</li>
+                <li class="menu__item darked-text" onclick = "window.location.href='faq.php'">FAQ</li>
                     <button id = 'toogleMenuAdmin' class = "standartStyle">Get Menu</button>
                 </ul>
                     <img src="<?= "../avatars/".$_SESSION['logged_user']['avatar']?>" alt="avatr">

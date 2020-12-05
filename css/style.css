@@ -16,7 +16,39 @@ a{
     height:100%;
     width:100%;
     position: fixed;
+    display: flex;
+    justify-content: center;
     background-color: #000;
+}
+.introduction__close{
+    width: 100%;
+    cursor: pointer;
+    font-weight: bold;
+    border:3px solid #1273EB;
+    margin:10px 0px;
+    text-align: center;
+    transition: .5s;
+}
+.introduction__close:hover{
+    background-color: #fff;;
+    color:#1273EB;
+    text-shadow: none;
+    transition: .5s;
+}
+.center{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.introduction__body{
+    background-color: #fff;
+    padding:20px;
+}
+.introduction__title{
+    text-align: center;
+    width:450px;
+    font-size: 24px;
+    line-height: 1.15em;
 }
 .video{
     min-height:500px;

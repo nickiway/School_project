@@ -71,14 +71,3 @@ jQuery(function($){
         var currencyBlock = document.getElementById("currency__information");
         $(currencyBlock).slideToggle(500);
     }
-
-function introduction () {
-    var getPopup = document.getElementById("introduction");
-    if (localStorage.getItem('popState') == 'shown') {
-        getPopup.style.display = "none";
-    }
-    else if(localStorage.getItem('popState') != 'shown'){    
-        $(getPopup).delay(2000).fadeIn();
-        localStorage.setItem('popState','shown');
-    }
-}

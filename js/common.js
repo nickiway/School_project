@@ -9,7 +9,6 @@ window.onload = function () {
     for (let i = 0; i < tabscontent.length; i++) {
         tabscontent[i].style.display = "none";
     }
-    introduction();
     document.getElementById(currentId).style.display = "flex";  
     }
      var amountScrolled = 200;

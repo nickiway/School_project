@@ -13,7 +13,7 @@ if(!isset($_SESSION['logged_user']) || $_SESSION['logged_user']['Status'] != 'Ad
 }
 $all_rows = mysqli_query($connect, "SELECT * FROM mailing ORDER BY ID ASC");
 $num_rows =ceil(mysqli_num_rows($all_rows)/$numOfRows); 
-$get_mail = mysqli_query($connect, "SELECT * FROM mailing ORDER BY ID ASC LIMIT $page_num,$numOfRows");
+$get_mail = mysqli_query($connect, "SELECT * FROM mailing ORDER BY ID DESC LIMIT $page_num,$numOfRows");
 // Delete block
 if(isset($_POST['delete_mail'])){
     $delete_the_email = $_POST['delete'];

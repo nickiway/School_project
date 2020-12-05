@@ -10,7 +10,7 @@ else{
 }
 $usersAllRows = mysqli_query($connect, "SELECT * FROM users ORDER BY id_user ASC");
 $usersNumRows =ceil(mysqli_num_rows($usersAllRows)/$numOfRows); 
-$getUser = mysqli_query($connect, "SELECT * FROM users ORDER BY id_user ASC LIMIT $pageNumUser, $numOfRowsUser");
+$getUser = mysqli_query($connect, "SELECT * FROM users ORDER BY id_user DESC LIMIT $pageNumUser, $numOfRowsUser");
 
 // Delete block
 if(isset($_POST['delete_User'])){
